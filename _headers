@@ -1,0 +1,15 @@
+# Cloudflare Pages 缓存策略
+# 静态资源（CSS/JS）长缓存；HTML 短缓存保证内容及时更新
+
+# data.js 未来承载真实网络数据，必须短缓存，不能被 immutable 卡死
+/assets/js/data.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
