@@ -313,6 +313,12 @@ h1, h2, h3 { font-family: var(--font-en); font-weight: 800; line-height: 1.25; l
   box-shadow: var(--shadow-md);
 }
 
+/* 实时数据角标变体（Google Sheets 数据源激活时） */
+.map-demo-note--live {
+  background: rgba(47, 93, 70, .92);
+  color: #DFF2E5;
+}
+
 /* 大学徽章 marker */
 .uni-marker {
   width: 34px; height: 34px;
