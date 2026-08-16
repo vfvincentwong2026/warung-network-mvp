@@ -1,12 +1,21 @@
 # Cloudflare Pages 缓存策略
-# 静态资源（CSS/JS）长缓存；HTML 短缓存保证内容及时更新
+# 注意：同一路径命中多条规则时 Cloudflare 会合并同名响应头而非覆盖，
+# 因此长缓存规则不能覆盖整个 /assets/* 目录，逐个列出稳定文件。
 
-# data.js 未来承载真实网络数据，必须短缓存，不能被 immutable 卡死
+# data.js 承载真实网络数据配置，必须短缓存
 /assets/js/data.js
   Cache-Control: public, max-age=0, must-revalidate
 
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
+# 站点规模小，其余静态资源用 1 小时温和缓存即可，
+# 避免代码更新被 immutable 长缓存卡死
+/assets/css/style.css
+  Cache-Control: public, max-age=3600
+
+/assets/js/main.js
+  Cache-Control: public, max-age=3600
+
+/assets/js/sheet-loader.js
+  Cache-Control: public, max-age=3600
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
