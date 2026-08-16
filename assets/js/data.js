@@ -35,8 +35,8 @@
  * 本文件下方的内置演示数据，网站永远可用。
  * ============================================================ */
 window.WARUNG_CONFIG = {
-  SHEET_ENABLED: false,
-  SHEET_CSV_URL: ""
+  SHEET_ENABLED: true,
+  SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8BqiZr8TGOUTHXv6UrRskirrvco3m8XSmToEIa5pRgIigPedE-sVPxFQu5dn1gzgdpignRqNSNXvW/pub?gid=37760839&single=true&output=csv"
 };
 
 /* 漏斗状态字典：顺序即漏斗顺序 */
