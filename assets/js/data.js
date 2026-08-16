@@ -39,104 +39,131 @@ window.WARUNG_CONFIG = {
   SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8BqiZr8TGOUTHXv6UrRskirrvco3m8XSmToEIa5pRgIigPedE-sVPxFQu5dn1gzgdpignRqNSNXvW/pub?gid=37760839&single=true&output=csv"
 };
 
-/* 漏斗状态字典：顺序即漏斗顺序（配色适配深色地图底图，勿改 key/label） */
+/* 漏斗状态字典：顺序即漏斗顺序（配色适配浅色 Positron 底图；label 三语，勿改 key） */
 const WARUNG_STATUS = {
-  target:      { key: 'target',      label: '目标点位', color: 'rgba(255,255,255,0.28)' },
-  contacted:   { key: 'contacted',   label: '已接触',   color: '#4EA3FF' },
-  negotiating: { key: 'negotiating', label: '洽谈中',   color: '#F5A623' },
-  signed:      { key: 'signed',      label: '已签约',   color: '#34C759' },
-  active:      { key: 'active',      label: '活跃',     color: '#30D158' }
+  target:      { key: 'target',      labelZh: '目标点位', labelEn: 'Target',    labelId: 'Target',         color: 'rgba(17,17,17,0.45)' },
+  contacted:   { key: 'contacted',   labelZh: '已接触',   labelEn: 'Contacted', labelId: 'Dihubungi',      color: '#2563EB' },
+  negotiating: { key: 'negotiating', labelZh: '洽谈中',   labelEn: 'In Talks',  labelId: 'Negosiasi',      color: '#D97706' },
+  signed:      { key: 'signed',      labelZh: '已签约',   labelEn: 'Signed',    labelId: 'Ditandatangani', color: '#16A34A' },
+  active:      { key: 'active',      labelZh: '活跃',     labelEn: 'Active',    labelId: 'Aktif',          color: '#22C55E' }
 };
 
 const UNIVERSITIES = [
   {
     id: 'ui',
     nameZh: '印度尼西亚大学',
+    nameEn: 'University of Indonesia',
     nameId: 'Universitas Indonesia',
     area: 'Depok',
     lat: -6.3628,
     lng: 106.8267,
     intro: '印尼排名第一的国立大学，约 5 万名学生，大学城核心消费高地。',
+    introEn: 'Indonesia\'s top-ranked national university with ~50,000 students — the consumption heart of the campus district.',
+    introId: 'Universitas negeri peringkat pertama Indonesia, ±50.000 mahasiswa — pusat konsumsi kawasan kampus.',
     color: '#E3A72F'
   },
   {
     id: 'gunadarma',
     nameZh: '古纳达马大学',
+    nameEn: 'Gunadarma University',
     nameId: 'Universitas Gunadarma',
     area: 'Margonda',
     lat: -6.3573,
     lng: 106.8427,
     intro: '大型私立大学，毗邻 UI，Margonda 学生街日均人流极旺。',
+    introEn: 'A large private university next to UI; the Margonda student strip stays busy all day.',
+    introId: 'Universitas swasta besar di sebelah UI; kawasan Margonda ramai mahasiswa sepanjang hari.',
     color: '#7E6B8F'
   },
   {
     id: 'pnj',
     nameZh: '雅加达国立理工学院',
+    nameEn: 'Jakarta State Polytechnic',
     nameId: 'Politeknik Negeri Jakarta',
     area: 'Depok',
     lat: -6.3718,
     lng: 106.8236,
     intro: '国立理工学院，工科生密集，高频次便利消费典型客群。',
+    introEn: 'A state polytechnic dense with engineering students — a classic high-frequency convenience crowd.',
+    introId: 'Politeknik negeri dengan mahasiswa teknik padat — konsumen harian berfrekuensi tinggi.',
     color: '#3E7C59'
   },
   {
     id: 'unj',
     nameZh: '雅加达国立大学',
+    nameEn: 'State University of Jakarta',
     nameId: 'Universitas Negeri Jakarta',
     area: 'Rawamangun',
     lat: -6.1934,
     lng: 106.8820,
     intro: '东雅加达老牌国立大学，师范类生源庞大，校园生活圈成熟。',
+    introEn: 'A long-established state university in East Jakarta with a large education-major population and a mature campus ecosystem.',
+    introId: 'Universitas negeri mapan di Jakarta Timur, populasi mahasiswa keguruan besar, ekosistem kampus matang.',
     color: '#2F6B4F'
   },
   {
     id: 'binus',
     nameZh: '建国大学',
+    nameEn: 'BINUS University',
     nameId: 'BINUS University',
     area: 'Kemanggisan',
     lat: -6.2019,
     lng: 106.7820,
     intro: '华裔学生比例最高的私立名校，对亚洲新品牌接受度极强。',
+    introEn: 'A leading private university with the highest share of Chinese-Indonesian students — highly receptive to new Asian brands.',
+    introId: 'Universitas swasta terkemuka dengan proporsi mahasiswa Tionghoa tertinggi — sangat terbuka pada merek Asia baru.',
     color: '#B5461D'
   },
   {
     id: 'trisakti',
     nameZh: '特里莎克蒂大学',
+    nameEn: 'Trisakti University',
     nameId: 'Universitas Trisakti',
     area: 'Grogol',
     lat: -6.1676,
     lng: 106.7892,
     intro: '西雅加达大型私立大学，Grogol 商圈与校园消费互相带动。',
+    introEn: 'A major private university in West Jakarta; the Grogol commercial strip and campus spending reinforce each other.',
+    introId: 'Universitas swasta besar di Jakarta Barat; kawasan Grogol dan belanja kampus saling menguatkan.',
     color: '#8A3324'
   },
   {
     id: 'atmajaya',
     nameZh: '阿特玛查雅大学',
-    nameId: 'Universitas Atma Jaya',
+    nameEn: 'Atma Jaya Catholic University',
+    nameId: 'Universitas Katolik Indonesia Atma Jaya',
     area: 'Semanggi',
     lat: -6.2195,
     lng: 106.8234,
     intro: '位于 Semanggi 市中心核心地段，学生消费力位居前列。',
+    introEn: 'Located in the Semanggi CBD core; among the strongest student spending power in the city.',
+    introId: 'Berada di jantung Semanggi; daya beli mahasiswa termasuk tertinggi di kota.',
     color: '#C65D21'
   },
   {
     id: 'uin',
     nameZh: 'UIN 国立伊斯兰大学',
+    nameEn: 'UIN Syarif Hidayatullah Jakarta',
     nameId: 'UIN Syarif Hidayatullah',
     area: 'Ciputat',
     lat: -6.3054,
     lng: 106.7555,
     intro: '南雅加达最大的国立伊斯兰大学，清真合规消费的代表场景。',
+    introEn: 'The largest state Islamic university in South Jakarta — the representative scene for Halal-compliant consumption.',
+    introId: 'UIN terbesar di Jakarta Selatan — skenario konsumsi halal yang paling representatif.',
     color: '#4E7A3A'
   },
   {
     id: 'pancasila',
     nameZh: '潘查希拉大学',
+    nameEn: 'Pancasila University',
     nameId: 'Universitas Pancasila',
     area: 'Srengseng Sawah',
     lat: -6.3376,
     lng: 106.8328,
     intro: '历史悠久的私立大学，与 UI 生活圈相邻，点位协同价值高。',
+    introEn: 'A historic private university adjacent to the UI living circle, with strong outlet synergy.',
+    introId: 'Universitas swasta bersejarah berdampingan dengan kawasan UI — sinergi titik jual tinggi.',
     color: '#9C6644'
   }
 ];

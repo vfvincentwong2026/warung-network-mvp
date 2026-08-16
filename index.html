@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- description 由 main.js 随语言切换更新（key: meta.desc） -->
   <meta name="description" content="Warung Network —— 中国消费品牌进入印尼的第一站。用雅加达大学城 Warung 终端网络，让你的新品 48 小时完成真实市场验证。">
   <title>Warung Network · 中国消费品牌进入印尼的第一站</title>
 
@@ -15,7 +16,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- 本地资源带版本号：以后每次部署递增 v 号即可强制刷新缓存（避免新旧文件混装破版） -->
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
@@ -24,18 +26,24 @@
     <div class="container nav__inner">
       <a class="nav__brand" href="#top">
         <span class="nav__logo" aria-hidden="true">WN</span>
-        <span class="nav__name">Warung Network<span class="nav__sub">雅加达 · Jakarta</span></span>
+        <span class="nav__name">Warung Network<span class="nav__sub" data-i18n="nav.sub">雅加达 · Jakarta</span></span>
       </a>
-      <nav class="nav__links" id="navLinks" aria-label="主导航">
-        <a href="#market">市场机会</a>
-        <a href="#map">终端地图</a>
-        <a href="#products">产品服务</a>
-        <a href="#schedule">档期</a>
-        <a href="#process">流程</a>
-        <a href="#contact">联系</a>
+      <nav class="nav__links" id="navLinks" aria-label="主导航" data-i18n-aria="aria.nav.main">
+        <a href="#market" data-i18n="nav.market">市场机会</a>
+        <a href="#map" data-i18n="nav.map">终端地图</a>
+        <a href="#products" data-i18n="nav.products">产品服务</a>
+        <a href="#schedule" data-i18n="nav.schedule">档期</a>
+        <a href="#process" data-i18n="nav.process">流程</a>
+        <a href="#contact" data-i18n="nav.contact">联系</a>
       </nav>
-      <a class="btn btn--primary btn--sm nav__cta" href="#contact">索取快报</a>
-      <button class="nav__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <!-- 语言切换器：中 | EN | ID -->
+      <div class="lang-switch" id="langSwitch" role="group" aria-label="Language / Bahasa / 语言">
+        <button type="button" data-lang="zh" class="active">中</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="id">ID</button>
+      </div>
+      <a class="btn btn--primary btn--sm nav__cta" href="#contact" data-i18n="nav.cta">索取快报</a>
+      <button class="nav__toggle" id="navToggle" aria-label="打开菜单" data-i18n-aria="aria.menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -46,20 +54,20 @@
     <!-- ============ 2. Hero ============ -->
     <section class="hero">
       <div class="container hero__inner">
-        <p class="hero__eyebrow">Peluncur Produk Baru · 新品发射台</p>
-        <h1 class="hero__title">让你的新品，<br><span class="hero__accent">48 小时</span>铺进雅加达大学城</h1>
-        <p class="hero__subtitle">中国消费品牌进入印尼的<strong>第一站</strong> —— 用 300 万家 Warung 里的大学城终端网络，做真实货架上的市场验证。</p>
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">Peluncur Produk Baru · 新品发射台</p>
+        <h1 class="hero__title" data-i18n="hero.title">让你的新品，<br><span class="hero__accent">48 小时</span>铺进雅加达大学城</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">中国消费品牌进入印尼的<strong>第一站</strong> —— 用 300 万家 Warung 里的大学城终端网络，做真实货架上的市场验证。</p>
         <div class="hero__ctas">
-          <a class="btn btn--primary" href="#map">查看终端地图</a>
-          <a class="btn btn--ghost" href="#contact">索取消费快报</a>
+          <a class="btn btn--primary" href="#map" data-i18n="hero.cta.map">查看终端地图</a>
+          <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta.report">索取消费快报</a>
         </div>
-        <p class="hero__note">蜜雪冰城们在印尼开了 2,600+ 家店 —— 但不是每个品牌都烧得起自建渠道。</p>
-        <!-- 底部细数据带 -->
+        <p class="hero__note" data-i18n="hero.note">蜜雪冰城们在印尼开了 2,600+ 家店 —— 但不是每个品牌都烧得起自建渠道。</p>
+        <!-- 底部细数据带（数字+单位整体走 i18n，避免 万/亿 直译错误） -->
         <div class="hero__strip">
-          <span class="hero__strip-item"><b>2.85 亿</b>人口</span>
-          <span class="hero__strip-item"><b>7,500 万</b>Z 世代</span>
-          <span class="hero__strip-item"><b>+175%</b>QRIS 增长</span>
-          <span class="hero__strip-item"><b>300 万</b>Warung 终端</span>
+          <span class="hero__strip-item"><b data-i18n="hero.strip1.num">2.85 亿</b><i data-i18n="hero.strip1">人口</i></span>
+          <span class="hero__strip-item"><b data-i18n="hero.strip2.num">7,500 万</b><i data-i18n="hero.strip2">Z 世代</i></span>
+          <span class="hero__strip-item"><b>+175%</b><i data-i18n="hero.strip3">QRIS 增长</i></span>
+          <span class="hero__strip-item"><b data-i18n="hero.strip4.num">300 万</b><i data-i18n="hero.strip4">Warung 终端</i></span>
         </div>
       </div>
     </section>
@@ -67,46 +75,47 @@
     <!-- ============ 3. 市场机会 ============ -->
     <section class="section" id="market">
       <div class="container">
-        <p class="section__eyebrow">Peluang Pasar · 市场机会</p>
-        <h2 class="section__title">全球第四人口大国，正在为中国品牌开门</h2>
-        <p class="section__lead">年轻、移动支付爆发、街角小店仍是零售主力 —— 进入印尼的最佳切口，就在大学城的 Warung。</p>
+        <p class="section__eyebrow" data-i18n="market.eyebrow">Peluang Pasar · 市场机会</p>
+        <h2 class="section__title" data-i18n="market.title">全球第四人口大国，正在为中国品牌开门</h2>
+        <p class="section__lead" data-i18n="market.lead">年轻、移动支付爆发、街角小店仍是零售主力 —— 进入印尼的最佳切口，就在大学城的 Warung。</p>
 
+        <!-- 混合量级单位（亿/万）的数字+单位整体进 I18N 字典，不参与 count-up -->
         <div class="stats">
           <div class="stat-card">
-            <div class="stat-card__num"><span class="count-up" data-target="2.85" data-decimals="2">0</span> 亿</div>
-            <div class="stat-card__label">总人口 · 全球第四</div>
+            <div class="stat-card__num" data-i18n="stat1.num">2.85 亿</div>
+            <div class="stat-card__label" data-i18n="stat1.label">总人口 · 全球第四</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card__num"><span class="count-up" data-target="30" data-decimals="0">0</span> 岁</div>
-            <div class="stat-card__label">年龄中位数</div>
+            <div class="stat-card__num"><span class="count-up" data-target="30" data-decimals="0">0</span> <span data-i18n="stat2.unit">岁</span></div>
+            <div class="stat-card__label" data-i18n="stat2.label">年龄中位数</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card__num"><span class="count-up" data-target="7500" data-decimals="0">0</span> 万</div>
-            <div class="stat-card__label">Z 世代人口</div>
+            <div class="stat-card__num" data-i18n="stat3.num">7,500 万</div>
+            <div class="stat-card__label" data-i18n="stat3.label">Z 世代人口</div>
           </div>
           <div class="stat-card">
             <div class="stat-card__num">+<span class="count-up" data-target="175" data-decimals="0">0</span>%</div>
-            <div class="stat-card__label">QRIS 支付 2024 年交易量增长</div>
+            <div class="stat-card__label" data-i18n="stat4.label">QRIS 支付 2024 年交易量增长</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card__num"><span class="count-up" data-target="300" data-decimals="0">0</span> 万家</div>
-            <div class="stat-card__label">印尼 Warung 小店总数</div>
+            <div class="stat-card__num" data-i18n="stat5.num">300 万</div>
+            <div class="stat-card__label" data-i18n="stat5.label">印尼 Warung 小店总数</div>
           </div>
           <div class="stat-card">
             <div class="stat-card__num"><span class="count-up" data-target="68" data-decimals="0">0</span>%</div>
-            <div class="stat-card__label">Warung 占印尼零售份额</div>
+            <div class="stat-card__label" data-i18n="stat6.label">Warung 占印尼零售份额</div>
           </div>
         </div>
 
         <div class="brands">
-          <h3 class="brands__title">中国品牌已在抢滩</h3>
+          <h3 class="brands__title" data-i18n="brands.title">中国品牌已在抢滩</h3>
           <div class="brands__grid">
-            <div class="brand-chip"><strong>泡泡玛特</strong><span>雅加达门店开业排队数小时，潮玩热度超预期。</span></div>
-            <div class="brand-chip"><strong>霸王茶姬</strong><span>东南亚扩张提速，雅加达核心商圈接连落店。</span></div>
-            <div class="brand-chip"><strong>Skintific</strong><span>中国团队孵化的护肤品牌，已成印尼电商护肤头部。</span></div>
-            <div class="brand-chip"><strong>名创优品</strong><span>深耕多年，印尼门店规模已达数百家。</span></div>
+            <div class="brand-chip"><strong data-i18n="brand.popmart.name">泡泡玛特</strong><span data-i18n="brand.popmart">雅加达门店开业排队数小时，潮玩热度超预期。</span></div>
+            <div class="brand-chip"><strong data-i18n="brand.chagee.name">霸王茶姬</strong><span data-i18n="brand.chagee">东南亚扩张提速，雅加达核心商圈接连落店。</span></div>
+            <div class="brand-chip"><strong data-i18n="brand.skintific.name">Skintific</strong><span data-i18n="brand.skintific">中国团队孵化的护肤品牌，已成印尼电商护肤头部。</span></div>
+            <div class="brand-chip"><strong data-i18n="brand.miniso.name">名创优品</strong><span data-i18n="brand.miniso">深耕多年，印尼门店规模已达数百家。</span></div>
           </div>
-          <p class="brands__note">巨头用资本铺出渠道网络，腰部品牌需要的是 —— 一条低成本的验证快车道。</p>
+          <p class="brands__note" data-i18n="brands.note">巨头用资本铺出渠道网络，腰部品牌需要的是 —— 一条低成本的验证快车道。</p>
         </div>
       </div>
     </section>
@@ -114,91 +123,91 @@
     <!-- ============ 4. Warung 城市终端地图（核心模块） ============ -->
     <section class="section section--map" id="map">
       <div class="container">
-        <p class="section__eyebrow">Peta Jaringan · 终端地图</p>
-        <h2 class="section__title">🗺️ Warung 城市终端地图</h2>
-        <p class="section__lead">大雅加达 9 所大学城周边的 Warung 终端网络。点击大学徽章飞到校区视野，点击小圆点查看门店详情。</p>
+        <p class="section__eyebrow" data-i18n="map.eyebrow">Peta Jaringan · 终端地图</p>
+        <h2 class="section__title" data-i18n="map.title">🗺️ Warung 城市终端地图</h2>
+        <p class="section__lead" data-i18n="map.lead">大雅加达 9 所大学城周边的 Warung 终端网络。点击大学徽章飞到校区视野，点击小圆点查看门店详情。</p>
 
         <!-- 漏斗统计条（数据由 main.js 从 data.js 自动计算） -->
-        <div class="funnel" id="funnelBar" aria-label="渠道漏斗统计"></div>
+        <div class="funnel" id="funnelBar" aria-label="渠道漏斗统计" data-i18n-aria="aria.funnel"></div>
 
         <!-- 筛选栏 -->
         <div class="map-filters">
           <div class="map-filters__group">
-            <label class="map-filters__label" for="uniFilter">按大学筛选</label>
+            <label class="map-filters__label" for="uniFilter" data-i18n="filter.uni">按大学筛选</label>
             <select id="uniFilter" class="map-filters__select">
-              <option value="">全部大学（大雅加达视野）</option>
+              <option value="" data-i18n="filter.uni.all">全部大学（大雅加达视野）</option>
             </select>
           </div>
           <div class="map-filters__group map-filters__group--status">
-            <span class="map-filters__label">按状态筛选</span>
+            <span class="map-filters__label" data-i18n="filter.status">按状态筛选</span>
             <div class="status-chips" id="statusChips"></div>
           </div>
         </div>
       </div>
 
       <div class="map-wrap">
-        <div id="leafletMap" role="application" aria-label="Warung 终端网络地图"></div>
-        <!-- 图例 + 演示数据标注（诚实原则，硬性要求） -->
+        <div id="leafletMap" role="application" aria-label="Warung 终端网络地图" data-i18n-aria="aria.map"></div>
         <div class="map-legend" id="mapLegend"></div>
-        <div class="map-demo-note" id="mapDataBadge">演示数据 Demo Data · 实时网络数据于渠道激活后上线</div>
+        <!-- 数据来源角标：默认隐藏，真实数据加载成功后由 main.js 点亮「实时数据」 -->
+        <div class="map-demo-note" id="mapDataBadge"></div>
       </div>
     </section>
 
     <!-- ============ 5. 产品服务（货架） ============ -->
     <section class="section section--alt" id="products">
       <div class="container">
-        <p class="section__eyebrow">Produk · 产品货架</p>
-        <h2 class="section__title">四级产品，从一份快报到完整落地</h2>
-        <p class="section__lead">全部预付制 —— 先锁档期，再开测。</p>
+        <p class="section__eyebrow" data-i18n="products.eyebrow">Produk · 产品货架</p>
+        <h2 class="section__title" data-i18n="products.title">四级产品，从一份快报到完整落地</h2>
+        <p class="section__lead" data-i18n="products.lead">全部预付制 —— 先锁档期，再开测。</p>
 
         <div class="products">
           <article class="product-card">
             <div class="product-card__tier">L1</div>
-            <h3 class="product-card__name">消费快报</h3>
-            <div class="product-card__price">¥8,000 <small>起</small></div>
+            <h3 class="product-card__name" data-i18n="p1.name">消费快报</h3>
+            <div class="product-card__price">¥8,000 <small data-i18n="p1.suffix">起</small></div>
             <ul class="product-card__list">
-              <li>雅加达大学生消费洞察月报</li>
-              <li>品类热度 + 价格带分析</li>
-              <li>Warung 终端一线见闻</li>
+              <li data-i18n="p1.li1">雅加达大学生消费洞察月报</li>
+              <li data-i18n="p1.li2">品类热度 + 价格带分析</li>
+              <li data-i18n="p1.li3">Warung 终端一线见闻</li>
             </ul>
-            <div class="product-card__meta"><span>交付周期：5 个工作日</span><span class="tag">预付制</span></div>
+            <div class="product-card__meta"><span data-i18n="p1.meta">交付周期：5 个工作日</span><span class="tag" data-i18n="tag.prepaid">预付制</span></div>
           </article>
 
           <article class="product-card product-card--hot">
-            <div class="product-card__badge">最受欢迎</div>
+            <div class="product-card__badge" data-i18n="p2.badge">最受欢迎</div>
             <div class="product-card__tier">L2</div>
-            <h3 class="product-card__name">48 小时闪电测</h3>
+            <h3 class="product-card__name" data-i18n="p2.name">48 小时闪电测</h3>
             <div class="product-card__price">¥30,000</div>
             <ul class="product-card__list">
-              <li>样品铺进 10 家校园 Warung</li>
-              <li>48 小时封闭盲测 + 一手反馈</li>
-              <li>3 天交付图文报告 + 现场视频</li>
+              <li data-i18n="p2.li1">样品铺进 10 家校园 Warung</li>
+              <li data-i18n="p2.li2">48 小时封闭盲测 + 一手反馈</li>
+              <li data-i18n="p2.li3">3 天交付图文报告 + 现场视频</li>
             </ul>
-            <div class="product-card__meta"><span>交付周期：3 天</span><span class="tag">预付制</span></div>
+            <div class="product-card__meta"><span data-i18n="p2.meta">交付周期：3 天</span><span class="tag" data-i18n="tag.prepaid">预付制</span></div>
           </article>
 
           <article class="product-card">
             <div class="product-card__tier">L3</div>
-            <h3 class="product-card__name">两周标准试销</h3>
+            <h3 class="product-card__name" data-i18n="p3.name">两周标准试销</h3>
             <div class="product-card__price">¥80,000–150,000</div>
             <ul class="product-card__list">
-              <li>30+ 点位、两周真实试销</li>
-              <li>复购率 / 动销率 / 陈列反馈</li>
-              <li>定价与规格本地化建议</li>
+              <li data-i18n="p3.li1">30+ 点位、两周真实试销</li>
+              <li data-i18n="p3.li2">复购率 / 动销率 / 陈列反馈</li>
+              <li data-i18n="p3.li3">定价与规格本地化建议</li>
             </ul>
-            <div class="product-card__meta"><span>交付周期：2 周 + 3 天报告</span><span class="tag">预付制</span></div>
+            <div class="product-card__meta"><span data-i18n="p3.meta">交付周期：2 周 + 3 天报告</span><span class="tag" data-i18n="tag.prepaid">预付制</span></div>
           </article>
 
           <article class="product-card">
             <div class="product-card__tier">L4</div>
-            <h3 class="product-card__name">市场进入服务</h3>
-            <div class="product-card__price">面议</div>
+            <h3 class="product-card__name" data-i18n="p4.name">市场进入服务</h3>
+            <div class="product-card__price" data-i18n="p4.price">面议</div>
             <ul class="product-card__list">
-              <li>BPOM / 清真认证路径辅导</li>
-              <li>经销网络与 KOL 对接</li>
-              <li>首发 campaign 联合执行</li>
+              <li data-i18n="p4.li1">BPOM / 清真认证路径辅导</li>
+              <li data-i18n="p4.li2">经销网络与 KOL 对接</li>
+              <li data-i18n="p4.li3">首发 campaign 联合执行</li>
             </ul>
-            <div class="product-card__meta"><span>交付周期：按项目定制</span><span class="tag">预付制</span></div>
+            <div class="product-card__meta"><span data-i18n="p4.meta">交付周期：按项目定制</span><span class="tag" data-i18n="tag.prepaid">预付制</span></div>
           </article>
         </div>
       </div>
@@ -207,34 +216,34 @@
     <!-- ============ 6. 档期表 ============ -->
     <section class="section" id="schedule">
       <div class="container">
-        <p class="section__eyebrow">Jadwal Uji · 测试档期</p>
-        <h2 class="section__title">每月固定档期，8 个坑位，预付锁位</h2>
-        <p class="section__lead">为保证数据采集质量，每个测试档期仅开放 8 个品牌坑位。全额预付后锁定档期，逾期不顺延。</p>
+        <p class="section__eyebrow" data-i18n="schedule.eyebrow">Jadwal Uji · 测试档期</p>
+        <h2 class="section__title" data-i18n="schedule.title">每月固定档期，8 个坑位，预付锁位</h2>
+        <p class="section__lead" data-i18n="schedule.lead">为保证数据采集质量，每个测试档期仅开放 8 个品牌坑位。全额预付后锁定档期，逾期不顺延。</p>
 
         <div class="slots">
           <div class="slot-month">
             <div class="slot-month__head">
-              <span class="slot-month__name">本月档期 A</span>
-              <span class="slot-month__date">每月 1 日 – 15 日</span>
+              <span class="slot-month__name" data-i18n="slotA.name">本月档期 A</span>
+              <span class="slot-month__date" data-i18n="slotA.date">每月 1 日 – 15 日</span>
             </div>
             <div class="slot-grid" data-occupied="3" data-total="8"></div>
-            <p class="slot-month__foot">剩余 <strong>5</strong> / 8 个坑位</p>
+            <p class="slot-month__foot" data-i18n="slotA.foot">剩余 <strong>5</strong> / 8 个坑位</p>
           </div>
           <div class="slot-month">
             <div class="slot-month__head">
-              <span class="slot-month__name">本月档期 B</span>
-              <span class="slot-month__date">每月 16 日 – 月末</span>
+              <span class="slot-month__name" data-i18n="slotB.name">本月档期 B</span>
+              <span class="slot-month__date" data-i18n="slotB.date">每月 16 日 – 月末</span>
             </div>
             <div class="slot-grid" data-occupied="1" data-total="8"></div>
-            <p class="slot-month__foot">剩余 <strong>7</strong> / 8 个坑位</p>
+            <p class="slot-month__foot" data-i18n="slotB.foot">剩余 <strong>7</strong> / 8 个坑位</p>
           </div>
         </div>
-        <p class="slots-note">档期示例 · 实际坑位以咨询为准</p>
+        <p class="slots-note" data-i18n="slots.note">档期示例 · 实际坑位以咨询为准</p>
 
         <div class="slots-rules">
-          <div class="rule"><strong>预付锁位</strong><span>全额预付即锁定坑位，以到账时间为准。</span></div>
-          <div class="rule"><strong>样品先行</strong><span>开测前 7 天样品须抵达雅加达仓库。</span></div>
-          <div class="rule"><strong>错过等下期</strong><span>档期固定，逾期不顺延、不退款，可转下期。</span></div>
+          <div class="rule"><strong data-i18n="rule1.t">预付锁位</strong><span data-i18n="rule1.d">全额预付即锁定坑位，以到账时间为准。</span></div>
+          <div class="rule"><strong data-i18n="rule2.t">样品先行</strong><span data-i18n="rule2.d">开测前 7 天样品须抵达雅加达仓库。</span></div>
+          <div class="rule"><strong data-i18n="rule3.t">错过等下期</strong><span data-i18n="rule3.d">档期固定，逾期不顺延、不退款，可转下期。</span></div>
         </div>
       </div>
     </section>
@@ -242,41 +251,41 @@
     <!-- ============ 7. 运作流程 ============ -->
     <section class="section section--alt" id="process">
       <div class="container">
-        <p class="section__eyebrow">Cara Kerja · 运作流程</p>
-        <h2 class="section__title">四步，把样品变成一份能决策的报告</h2>
+        <p class="section__eyebrow" data-i18n="process.eyebrow">Cara Kerja · 运作流程</p>
+        <h2 class="section__title" data-i18n="process.title">四步，把样品变成一份能决策的报告</h2>
 
         <div class="steps">
           <div class="step">
             <div class="step__num">1</div>
-            <h3>寄样品</h3>
-            <p>样品寄至雅加达仓库，我们完成入库清点与盲测封装处理。</p>
+            <h3 data-i18n="step1.t">寄样品</h3>
+            <p data-i18n="step1.d">样品寄至雅加达仓库，我们完成入库清点与盲测封装处理。</p>
           </div>
           <div class="step__arrow" aria-hidden="true">→</div>
           <div class="step">
             <div class="step__num">2</div>
-            <h3>48h 铺进校园店</h3>
-            <p>48 小时内铺进大学城 Warung 真实货架，直面真实学生客群。</p>
+            <h3 data-i18n="step2.t">48h 铺进校园店</h3>
+            <p data-i18n="step2.d">48 小时内铺进大学城 Warung 真实货架，直面真实学生客群。</p>
           </div>
           <div class="step__arrow" aria-hidden="true">→</div>
           <div class="step">
             <div class="step__num">3</div>
-            <h3>封闭盲测采集数据</h3>
-            <p>全程封闭式盲测，采集购买意愿、口味反馈、价格敏感度。</p>
+            <h3 data-i18n="step3.t">封闭盲测采集数据</h3>
+            <p data-i18n="step3.d">全程封闭式盲测，采集购买意愿、口味反馈、价格敏感度。</p>
           </div>
           <div class="step__arrow" aria-hidden="true">→</div>
           <div class="step">
             <div class="step__num">4</div>
-            <h3>3 天交付报告 + 视频</h3>
-            <p>结构化数据报告 + 货架实拍视频，直接进入你的决策会议。</p>
+            <h3 data-i18n="step4.t">3 天交付报告 + 视频</h3>
+            <p data-i18n="step4.d">结构化数据报告 + 货架实拍视频，直接进入你的决策会议。</p>
           </div>
         </div>
 
         <div class="compliance">
-          <h3 class="compliance__title">合规说明</h3>
+          <h3 class="compliance__title" data-i18n="compliance.title">合规说明</h3>
           <ul class="compliance__list">
-            <li>所有测试均为<strong>封闭式盲测</strong>，样品为<strong>非卖品</strong>，不进入公开销售环节。</li>
-            <li>团队熟悉印尼 <strong>BPOM</strong> 注册与<strong>清真（Halal）认证</strong>流程，可为正式入市提供路径辅导。</li>
-            <li>测试过程遵守印尼食品与消费品相关法规，保护品牌方知识产权。</li>
+            <li data-i18n="compliance.li1">所有测试均为<strong>封闭式盲测</strong>，样品为<strong>非卖品</strong>，不进入公开销售环节。</li>
+            <li data-i18n="compliance.li2">团队熟悉印尼 <strong>BPOM</strong> 注册与<strong>清真（Halal）认证</strong>流程，可为正式入市提供路径辅导。</li>
+            <li data-i18n="compliance.li3">测试过程遵守印尼食品与消费品相关法规，保护品牌方知识产权。</li>
           </ul>
         </div>
       </div>
@@ -285,29 +294,29 @@
     <!-- ============ 8. 为什么是我们 ============ -->
     <section class="section" id="why">
       <div class="container">
-        <p class="section__eyebrow">Kenapa Kami · 为什么是我们</p>
-        <h2 class="section__title">别人给你问卷，我们给你货架</h2>
+        <p class="section__eyebrow" data-i18n="why.eyebrow">Kenapa Kami · 为什么是我们</p>
+        <h2 class="section__title" data-i18n="why.title">别人给你问卷，我们给你货架</h2>
 
         <div class="trust">
           <div class="trust-card">
             <div class="trust-card__icon" aria-hidden="true">🏪</div>
-            <h3>真终端，非问卷</h3>
-            <p>数据来自 Warung 真实货架与真实学生购买场景，不是坐在办公室里的想象。</p>
+            <h3 data-i18n="t1.t">真终端，非问卷</h3>
+            <p data-i18n="t1.d">数据来自 Warung 真实货架与真实学生购买场景，不是坐在办公室里的想象。</p>
           </div>
           <div class="trust-card">
             <div class="trust-card__icon" aria-hidden="true">⚡</div>
-            <h3>3 天出结果</h3>
-            <p>从铺货到报告最快 3 天。市场窗口不等人，验证速度就是竞争力。</p>
+            <h3 data-i18n="t2.t">3 天出结果</h3>
+            <p data-i18n="t2.d">从铺货到报告最快 3 天。市场窗口不等人，验证速度就是竞争力。</p>
           </div>
           <div class="trust-card">
             <div class="trust-card__icon" aria-hidden="true">🛡️</div>
-            <h3>合规护航</h3>
-            <p>封闭盲测、非卖品流程，熟悉 BPOM 与清真认证，把合规风险挡在门外。</p>
+            <h3 data-i18n="t3.t">合规护航</h3>
+            <p data-i18n="t3.d">封闭盲测、非卖品流程，熟悉 BPOM 与清真认证，把合规风险挡在门外。</p>
           </div>
           <div class="trust-card">
             <div class="trust-card__icon" aria-hidden="true">🤝</div>
-            <h3>中印双语团队</h3>
-            <p>雅加达本地团队执行，中文对接交付，没有翻译损耗，没有信息黑箱。</p>
+            <h3 data-i18n="t4.t">中印双语团队</h3>
+            <p data-i18n="t4.d">雅加达本地团队执行，中文对接交付，没有翻译损耗，没有信息黑箱。</p>
           </div>
         </div>
       </div>
@@ -316,12 +325,12 @@
     <!-- ============ 9. CTA + Footer ============ -->
     <section class="cta" id="contact">
       <div class="container cta__inner">
-        <h2 class="cta__title">先读一份快报，再决定要不要进场</h2>
-        <p class="cta__lead">索取《雅加达大学生消费快报 · 样板版》—— 看看我们的数据颗粒度，值不值 ¥8,000。</p>
+        <h2 class="cta__title" data-i18n="cta.title">先读一份快报，再决定要不要进场</h2>
+        <p class="cta__lead" data-i18n="cta.lead">索取《雅加达大学生消费快报 · 样板版》—— 看看我们的数据颗粒度，值不值 ¥8,000。</p>
         <!-- ⚠️ 以下联系方式为占位，部署前需替换为真实联系方式 -->
         <div class="cta__contacts">
           <a class="btn btn--light" href="#contact">WhatsApp：+62-xxx-xxxx-xxxx</a>
-          <a class="btn btn--light" href="#contact">微信：warung-network</a>
+          <a class="btn btn--light" href="#contact" data-i18n="cta.wechat">微信：warung-network</a>
           <a class="btn btn--light" href="mailto:hello@warungnetwork.id">hello@warungnetwork.id</a>
         </div>
       </div>
@@ -331,15 +340,15 @@
       <div class="container footer__inner">
         <div class="footer__brand">
           <strong>Warung Network</strong>
-          <span>中国消费品牌进入印尼的第一站</span>
+          <span data-i18n="footer.tagline">中国消费品牌进入印尼的第一站</span>
         </div>
-        <nav class="footer__links" aria-label="页脚导航">
-          <a href="#market">市场机会</a>
-          <a href="#map">终端地图</a>
-          <a href="#products">产品服务</a>
+        <nav class="footer__links" aria-label="页脚导航" data-i18n-aria="aria.footer">
+          <a href="#market" data-i18n="nav.market">市场机会</a>
+          <a href="#map" data-i18n="nav.map">终端地图</a>
+          <a href="#products" data-i18n="nav.products">产品服务</a>
           <a href="https://github.com/vfvincentwong2026/warung-network-mvp" target="_blank" rel="noopener">GitHub</a>
         </nav>
-        <p class="footer__copy">© 2026 Warung Network · Jakarta &amp; Hangzhou · 地图数据 © OpenStreetMap contributors</p>
+        <p class="footer__copy" data-i18n="footer.copy">© 2026 Warung Network · Jakarta &amp; Hangzhou · 地图数据 © OpenStreetMap contributors © CARTO</p>
       </div>
     </footer>
 
@@ -348,8 +357,9 @@
   <!-- Leaflet 1.9.x JS（CDN） -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="assets/js/data.js"></script>
-  <script src="assets/js/sheet-loader.js"></script>
-  <script src="assets/js/main.js"></script>
+  <!-- 本地资源带版本号：每次部署递增 v 号强制刷新 -->
+  <script src="assets/js/data.js?v=3"></script>
+  <script src="assets/js/sheet-loader.js?v=3"></script>
+  <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
