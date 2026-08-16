@@ -2,6 +2,12 @@
 
 > **中国消费品牌进入印尼的第一站 —— 让新品 48 小时铺进雅加达大学城**
 
+## 🌐 线上站点
+
+**官网 + 实时终端地图：https://warung-network.pages.dev**
+
+地图数据由地推团队通过 Google Sheets 实时录入，网站自动同步渲染（详见 `docs/方案-GoogleSheets数据源对接.md`）。Cloudflare Pages 托管，部署方式见 `README-deploy.md`。
+
 ---
 
 ## 📖 项目简介
