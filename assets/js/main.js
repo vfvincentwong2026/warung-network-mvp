@@ -1,5 +1,5 @@
 /* ============================================================
- * Warung Network — 主逻辑（v3 白色主题 + 中/EN/ID 三语切换）
+ * Warung Network — 主逻辑（v4 白色主题三语版 + 签约 SKU 货架 + 校园 WhatsApp 社群）
  * 依赖：Leaflet 1.9.x（CDN）+ assets/js/data.js（window.WARUNG_DATA）
  *      + assets/js/sheet-loader.js（window.SheetLoader，可选）
  * 兼容 file:// 直开：不使用 ES Module / fetch 本地文件
@@ -125,6 +125,18 @@
       'cta.wechat': '微信：warung-network',
       'footer.tagline': '中国消费品牌进入印尼的第一站',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · 地图数据 © OpenStreetMap contributors © CARTO',
+      /* SKU 货架 + 校园社群 */
+      'sku.eyebrow': 'Etalase SKU · 签约货盘', 'sku.title': '签约 SKU 货架',
+      'sku.hardware.title': '首推智能硬件 Top 10',
+      'sku.hardware.intro': '为印尼大学生严选的中国智能硬件货盘 · 社群预售 + 校园快闪 + Warung 自提',
+      'sku.meals.title': '一日三餐 · Warung 场景 SKU',
+      'sku.meals.intro': '高频刚需的日常基本盘 · 全部由签约 Warung 终端承接',
+      'sku.tag': '签约 SKU',
+      'community.eyebrow': 'Komunitas Kampus · 校园社群',
+      'community.title': '校园社群网络',
+      'community.lead': '双边网络：左边 34 所校园终端店承接货架，右边 34 个校园 WhatsApp 社群承接复购。',
+      'community.note': '社群招募中 · 由校园大使运营',
+      'community.join': '💬 加入校园社群',
       /* 动态内容模板（{x} 为占位符） */
       'legend.title': '图例', 'legend.uni': '大学（点击飞到校区）',
       'badge.live': '🟢 实时数据 · 更新于 {time}',
@@ -213,6 +225,17 @@
       'cta.wechat': 'WeChat: warung-network',
       'footer.tagline': 'The first stop for Chinese consumer brands entering Indonesia',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · Map data © OpenStreetMap contributors © CARTO',
+      'sku.eyebrow': 'Etalase SKU · Signed Shelf', 'sku.title': 'Signed SKU Shelf',
+      'sku.hardware.title': 'Top 10 Smart Hardware Picks',
+      'sku.hardware.intro': 'Chinese smart hardware curated for Indonesian students · community presale + campus pop-ups + warung pickup',
+      'sku.meals.title': 'Three Meals a Day · Warung-Scene SKUs',
+      'sku.meals.intro': 'High-frequency daily staples · all fulfilled by signed warung outlets',
+      'sku.tag': 'Signed SKU',
+      'community.eyebrow': 'Komunitas Kampus · Campus Community',
+      'community.title': 'Campus Community Network',
+      'community.lead': 'A two-sided network: 34 campus terminal stores hold the shelves; 34 campus WhatsApp groups drive repeat purchases.',
+      'community.note': 'Recruiting members · run by campus ambassadors',
+      'community.join': '💬 Join Campus Community',
       'legend.title': 'Legend', 'legend.uni': 'Universities (click to fly in)',
       'badge.live': '🟢 Live data · updated {time}',
       'popup.nearby': 'nearby', 'popup.orders': 'Orders (7 days)',
@@ -300,6 +323,17 @@
       'cta.wechat': 'WeChat: warung-network',
       'footer.tagline': 'Pintu pertama merek konsumer Tiongkok masuk Indonesia',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · Data peta © OpenStreetMap contributors © CARTO',
+      'sku.eyebrow': 'Etalase SKU · SKU Terkontrak', 'sku.title': 'Etalase SKU Terkontrak',
+      'sku.hardware.title': 'Top 10 Hardware Pintar Pilihan',
+      'sku.hardware.intro': 'Hardware pintar Tiongkok terkurasi untuk mahasiswa Indonesia · presale komunitas + pop-up kampus + ambil di warung',
+      'sku.meals.title': 'Makan Tiga Kali Sehari · SKU Skenario Warung',
+      'sku.meals.intro': 'Kebutuhan harian berfrekuensi tinggi · semua dilayani warung terkontrak',
+      'sku.tag': 'SKU Terkontrak',
+      'community.eyebrow': 'Komunitas Kampus',
+      'community.title': 'Jaringan Komunitas Kampus',
+      'community.lead': 'Jaringan dua sisi: 34 toko terminal kampus memegang rak; 34 grup WhatsApp kampus mendorong pembelian ulang.',
+      'community.note': 'Perekrutan anggota · dikelola duta kampus',
+      'community.join': '💬 Gabung Komunitas Kampus',
       'legend.title': 'Legenda', 'legend.uni': 'Kampus (klik untuk mendekat)',
       'badge.live': '🟢 Data langsung · diperbarui {time}',
       'popup.nearby': 'sekitar', 'popup.orders': 'Pesanan 7 hari',
@@ -389,6 +423,60 @@
     });
   }
 
+  /* SKU / 社群数据对象的三语字段取值（回退中文） */
+  function pickL10n(obj, base) {
+    var k = base + (currentLang === 'en' ? 'En' : currentLang === 'id' ? 'Id' : 'Zh');
+    return obj[k] || obj[base + 'Zh'] || '';
+  }
+
+  /* --- 签约 SKU 货架 + 校园社群入口（本地常量数据，切语言需重渲染） --- */
+  function renderSkuAndCommunity() {
+    var hw = document.getElementById('hardwareGrid');
+    if (hw) {
+      hw.innerHTML = '';
+      (DATA.skusHardware || []).forEach(function (s) {
+        var card = document.createElement('article');
+        card.className = 'sku-card';
+        card.innerHTML =
+          '<div class="sku-card__top"><span class="sku-card__icon">' + escapeHtml(s.icon) + '</span>' +
+          '<span class="sku-card__tag">' + escapeHtml(T('sku.tag')) + '</span></div>' +
+          '<h3 class="sku-card__name">' + escapeHtml(pickL10n(s, 'name')) + '</h3>' +
+          '<p class="sku-card__desc">' + escapeHtml(pickL10n(s, 'desc')) + '</p>' +
+          '<div class="sku-card__foot"><span class="sku-card__price">' + escapeHtml(s.priceRp) + '</span>' +
+          '<span class="sku-card__channel">' + escapeHtml(pickL10n(s, 'channel')) + '</span></div>';
+        hw.appendChild(card);
+      });
+    }
+    var meals = document.getElementById('mealsGrid');
+    if (meals) {
+      meals.innerHTML = '';
+      (DATA.skusMeals || []).forEach(function (m) {
+        var card = document.createElement('article');
+        card.className = 'meal-card';
+        card.innerHTML =
+          '<div class="meal-card__time">' + escapeHtml(m.icon) + ' ' + escapeHtml(pickL10n(m, 'time')) + '</div>' +
+          '<div class="meal-card__items">' + escapeHtml(pickL10n(m, 'items')) + '</div>' +
+          '<div class="meal-card__price">' + escapeHtml(m.priceRange) + '</div>' +
+          '<div class="meal-card__desc">' + escapeHtml(pickL10n(m, 'desc')) + '</div>';
+        meals.appendChild(card);
+      });
+    }
+    var comm = document.getElementById('communityGrid');
+    if (comm) {
+      comm.innerHTML = '';
+      UNIS.forEach(function (u) {
+        if (!u.whatsappGroup) return;
+        var card = document.createElement('div');
+        card.className = 'community-card';
+        card.innerHTML =
+          '<span class="community-card__name">' + escapeHtml(uniName(u)) + '</span>' +
+          '<a class="community-card__join" href="' + escapeHtml(u.whatsappGroup) + '" target="_blank" rel="noopener">' +
+          escapeHtml(T('community.join')) + '</a>';
+        comm.appendChild(card);
+      });
+    }
+  }
+
   /* ================= 启动序列 ================= */
 
   // 1) 与地图数据无关的 UI：立即初始化（脚本位于 body 末尾，DOM 已就绪）
@@ -411,6 +499,7 @@
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
     applyStaticI18n();
     renderSlots();
+    renderSkuAndCommunity(); // SKU 货架 + 校园社群卡随语言重渲染
     mapCtl.setLang(); // 重渲染漏斗/图例/chips/下拉/popup/徽章 title/角标
     document.querySelectorAll('#langSwitch button').forEach(function (b) {
       b.classList.toggle('active', b.dataset.lang === lang);
@@ -463,6 +552,10 @@
     }, { threshold: 0.4 });
     counters.forEach(function (c) { counterObserver.observe(c); });
 
+    /* --- 档期坑位 + SKU/社群卡首次渲染（须在渐显 observer 注册之前，动态卡片才能被观察到） --- */
+    renderSlots();
+    renderSkuAndCommunity();
+
     /* --- 滚动渐显（淡入 + 上移 12px，300ms ease-out） --- */
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -474,6 +567,7 @@
     document.querySelectorAll(
       '.section__eyebrow, .section__title, .section__lead, ' +
       '.stat-card, .brand-chip, .product-card, .slot-month, .rule, .step, .trust-card, ' +
+      '.sku-card, .meal-card, .community-card, ' +
       '.compliance, .funnel, .map-filters, ' +
       '.hero__eyebrow, .hero__title, .hero__subtitle, .hero__ctas, .hero__note, .hero__strip, ' +
       '.cta__title, .cta__lead, .cta__contacts'
@@ -481,9 +575,6 @@
       el.classList.add('reveal');
       revealObserver.observe(el);
     });
-
-    /* --- 档期坑位首次渲染 --- */
-    renderSlots();
 
     /* --- 移动端导航 --- */
     var navToggle = document.getElementById('navToggle');
@@ -564,10 +655,11 @@
         '<div class="popup-sub">' + escapeHtml(u.nameId) + ' · ' + escapeHtml(u.area) + '</div>' +
         '<div class="popup-stat">' + escapeHtml(uniIntro(u)) + '</div>' +
         '<div class="popup-stat" style="margin-top:6px">' +
-          escapeHtml(T('popup.uni.nearby').replace('{n}', nearby.length)) + (statHtml || escapeHtml(T('popup.uni.none'))) + '</div>';
+          escapeHtml(T('popup.uni.nearby').replace('{n}', nearby.length)) + (statHtml || escapeHtml(T('popup.uni.none'))) + '</div>' +
+        (u.whatsappGroup ? '<br><a class="popup-join" href="' + escapeHtml(u.whatsappGroup) + '" target="_blank" rel="noopener">' + escapeHtml(T('community.join')) + '</a>' : '');
     }
 
-    /* --- 大学徽章 marker（divIcon，仅 9 个；title 用当前语言校名） --- */
+    /* --- 大学徽章 marker（divIcon，仅 34 个；title 用当前语言校名） --- */
     UNIS.forEach(function (u) {
       var short = escapeHtml(u.id.toUpperCase().slice(0, 3));
       var icon = L.divIcon({

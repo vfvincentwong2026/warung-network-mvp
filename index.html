@@ -17,7 +17,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- 本地资源带版本号：以后每次部署递增 v 号即可强制刷新缓存（避免新旧文件混装破版） -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body>
 
@@ -150,6 +150,36 @@
         <div class="map-legend" id="mapLegend"></div>
         <!-- 数据来源角标：默认隐藏，真实数据加载成功后由 main.js 点亮「实时数据」 -->
         <div class="map-demo-note" id="mapDataBadge"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4.5 签约 SKU 货架 ============ -->
+    <section class="section section--alt" id="skus">
+      <div class="container">
+        <p class="section__eyebrow" data-i18n="sku.eyebrow">Etalase SKU · 签约货盘</p>
+        <h2 class="section__title" data-i18n="sku.title">签约 SKU 货架</h2>
+
+        <!-- A. 首推智能硬件 Top 10（JS 从 data.js SKUS_HARDWARE 渲染） -->
+        <h3 class="sku-block__title" data-i18n="sku.hardware.title">首推智能硬件 Top 10</h3>
+        <p class="sku-block__intro" data-i18n="sku.hardware.intro">为印尼大学生严选的中国智能硬件货盘 · 社群预售 + 校园快闪 + Warung 自提</p>
+        <div class="sku-grid" id="hardwareGrid"></div>
+
+        <!-- B. 一日三餐（Warung 场景 SKU，JS 从 data.js SKUS_MEALS 渲染） -->
+        <h3 class="sku-block__title" data-i18n="sku.meals.title">一日三餐 · Warung 场景 SKU</h3>
+        <p class="sku-block__intro" data-i18n="sku.meals.intro">高频刚需的日常基本盘 · 全部由签约 Warung 终端承接</p>
+        <div class="meals-grid" id="mealsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4.6 校园社群网络 ============ -->
+    <section class="section" id="community">
+      <div class="container">
+        <p class="section__eyebrow" data-i18n="community.eyebrow">Komunitas Kampus · 校园社群</p>
+        <h2 class="section__title" data-i18n="community.title">校园社群网络</h2>
+        <p class="section__lead" data-i18n="community.lead">双边网络：左边 34 所校园终端店承接货架，右边 34 个校园 WhatsApp 社群承接复购。</p>
+        <!-- 社群入口网格（JS 从 data.js 大学清单渲染） -->
+        <div class="community-grid" id="communityGrid"></div>
+        <p class="community-note" data-i18n="community.note">社群招募中 · 由校园大使运营</p>
       </div>
     </section>
 
@@ -358,8 +388,8 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <!-- 本地资源带版本号：每次部署递增 v 号强制刷新 -->
-  <script src="assets/js/data.js?v=3"></script>
-  <script src="assets/js/sheet-loader.js?v=3"></script>
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/data.js?v=4"></script>
+  <script src="assets/js/sheet-loader.js?v=4"></script>
+  <script src="assets/js/main.js?v=4"></script>
 </body>
 </html>

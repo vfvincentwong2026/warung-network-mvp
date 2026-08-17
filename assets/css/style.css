@@ -748,3 +748,158 @@ h1, h2, h3 {
   .map-legend { font-size: 11.5px; padding: 10px 12px; left: 10px; bottom: 14px; }
   .map-demo-note { font-size: 10.5px; right: 10px; bottom: 14px; max-width: 46%; border-radius: 10px; text-align: center; }
 }
+
+/* ============================================================
+ * v4 新增模块：签约 SKU 货架 + 校园社群网络
+ * ============================================================ */
+
+/* ---------- SKU 货架 ---------- */
+.sku-block__title {
+  font-size: 19px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.sku-block__intro {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+.sku-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 56px;
+}
+.sku-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  display: flex; flex-direction: column;
+  transition: border-color .18s ease, transform .18s ease;
+}
+.sku-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.sku-card__top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 14px;
+}
+.sku-card__icon { font-size: 26px; filter: grayscale(1); }
+.sku-card__tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px; font-weight: 700; letter-spacing: .08em;
+  color: var(--text-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 3px 9px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sku-card__name { font-size: 15.5px; color: var(--text); margin-bottom: 6px; }
+.sku-card__desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; flex: 1; margin-bottom: 14px; }
+.sku-card__foot {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.sku-card__price {
+  font-family: var(--font-mono);
+  font-size: 14.5px; font-weight: 700; color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.sku-card__channel { font-size: 11.5px; color: var(--text-faint); text-align: right; }
+
+/* ---------- 一日三餐 ---------- */
+.meals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.meal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  transition: border-color .18s ease, transform .18s ease;
+}
+.meal-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.meal-card__time {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 700; color: var(--text);
+  margin-bottom: 8px;
+}
+.meal-card__items { font-size: 13.5px; color: var(--text); margin-bottom: 10px; }
+.meal-card__price {
+  font-family: var(--font-mono);
+  font-size: 13px; font-weight: 700; color: var(--text);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
+}
+.meal-card__desc { font-size: 12.5px; color: var(--text-dim); }
+
+/* ---------- 校园社群网络 ---------- */
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.community-card {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  transition: border-color .18s ease;
+}
+.community-card:hover { border-color: var(--line-strong); }
+.community-card__name {
+  font-size: 13.5px; font-weight: 500; color: var(--text);
+  line-height: 1.35;
+}
+.community-card__join {
+  flex: none;
+  font-size: 12px; font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+  transition: background .15s ease, color .15s ease;
+}
+.community-card__join:hover { background: var(--text); color: #fff; }
+.community-note {
+  font-size: 12px;
+  color: var(--text-faint);
+  text-align: center;
+  font-family: var(--font-mono);
+  letter-spacing: .04em;
+}
+
+/* 大学 popup 内的社群加入按钮 */
+.popup-join {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12.5px; font-weight: 700;
+  color: #fff;
+  background: var(--text);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  transition: background .15s ease;
+}
+.popup-join:hover { background: #333; }
+
+/* ---------- 新增模块响应式 ---------- */
+@media (max-width: 960px) {
+  .sku-grid { grid-template-columns: repeat(2, 1fr); }
+  .meals-grid { grid-template-columns: repeat(2, 1fr); }
+  .community-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .sku-grid { grid-template-columns: 1fr; }
+  .meals-grid { grid-template-columns: 1fr; }
+  .community-grid { grid-template-columns: 1fr; }
+}

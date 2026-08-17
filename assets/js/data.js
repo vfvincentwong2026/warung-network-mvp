@@ -1019,9 +1019,84 @@ const WARUNGS = [
   { id: 'w523', name: 'Warung Nasi Pak Eko', universityId: 'sgu', categories: ['果汁 Jus', '冰茶'], status: 'target', lat: -6.22631, lng: 106.65169 },
 ];
 
+/* ============================================================
+ * ⚠️ 占位运营号：6281234567890 为占位 WhatsApp 号码，
+ *    上线前必须替换为真实运营号（改下面这一个常量即可全局生效）。
+ * 为每所大学生成社群加入链接，预填印尼语自我介绍文案。
+ * ============================================================ */
+const WHATSAPP_OPS_NUMBER = '6281234567890'; // ⚠️ 占位号码，上线前替换
+UNIVERSITIES.forEach(function (u) {
+  var waUrl = 'https://wa.me/' + WHATSAPP_OPS_NUMBER + '?text=' +
+    encodeURIComponent('Halo, saya mahasiswa ' + u.nameId + ', mau gabung komunitas kampus');
+  // 协议白名单防御：仅放行 https://wa.me/<数字>?text= 形态，
+  // 防未来误改成 javascript: 等危险 scheme；不通过则该大学不输出社群链接
+  if (/^https:\/\/wa\.me\/\d+\?text=/.test(waUrl)) {
+    u.whatsappGroup = waUrl;
+  }
+});
+
+/* ============================================================
+ * 签约 SKU 货架数据
+ * SKUS_HARDWARE — 首推智能硬件 Top 10（字段：id, icon, 三语 name/desc/channel, priceRp）
+ * SKUS_MEALS    — 一日三餐 Warung 场景 SKU（时段 / 代表套餐 / 客单价区间 / 场景）
+ * ============================================================ */
+const SKUS_HARDWARE = [
+  { id: 'hw01', icon: '🕶️', nameZh: 'AI 翻译眼镜', nameEn: 'AI Translation Glasses', nameId: 'Kacamata Penerjemah AI',
+    descZh: '英语授课实时字幕，讲座听课神器', descEn: 'Real-time subtitles in English lectures — a lecture-hall essential', descId: 'Subtitle real-time saat kuliah bahasa Inggris — andalan di ruang kuliah',
+    priceRp: 'Rp 1.299.000', channelZh: '社群预售 + 快闪体验', channelEn: 'Community presale + pop-up', channelId: 'Presale komunitas + pop-up' },
+  { id: 'hw02', icon: '🎧', nameZh: '智能翻译耳机', nameEn: 'Smart Translation Earbuds', nameId: 'Earbud Penerjemah Pintar',
+    descZh: '跨语种小组讨论 / 英语口语练习', descEn: 'Cross-language group discussions & speaking practice', descId: 'Diskusi kelompok lintas bahasa & latihan speaking',
+    priceRp: 'Rp 499.000', channelZh: '社群预售', channelEn: 'Community presale', channelId: 'Presale komunitas' },
+  { id: 'hw03', icon: '🎙️', nameZh: 'AI 录音笔（转文字）', nameEn: 'AI Voice Recorder (Speech-to-Text)', nameId: 'Perekam Suara AI (ke Teks)',
+    descZh: '课堂录音自动转笔记，期末复习神器', descEn: 'Auto-transcribes lectures into notes — an exam-week savior', descId: 'Rekaman kuliah otomatis jadi catatan — penyelamat musim ujian',
+    priceRp: 'Rp 699.000', channelZh: '社群预售 + 校园代理', channelEn: 'Community presale + campus agents', channelId: 'Presale komunitas + agen kampus' },
+  { id: 'hw04', icon: '🖊️', nameZh: '扫描词典笔', nameEn: 'Scanning Dictionary Pen', nameId: 'Pena Kamus Pindai',
+    descZh: '英文教材即扫即译', descEn: 'Scan & translate English textbooks instantly', descId: 'Pindai & terjemahkan buku teks Inggris seketika',
+    priceRp: 'Rp 599.000', channelZh: '社群预售', channelEn: 'Community presale', channelId: 'Presale komunitas' },
+  { id: 'hw05', icon: '⌚', nameZh: '智能手表', nameEn: 'Smartwatch', nameId: 'Jam Pintar',
+    descZh: '健康监测 + 课堂静音通知', descEn: 'Health tracking + silent notifications in class', descId: 'Pantau kesehatan + notifikasi senyap di kelas',
+    priceRp: 'Rp 449.000', channelZh: '快闪 + 代理', channelEn: 'Pop-up + agents', channelId: 'Pop-up + agen' },
+  { id: 'hw06', icon: '🖨️', nameZh: '错题便携打印机', nameEn: 'Pocket Mistake Printer', nameId: 'Printer Saku Soal Salah',
+    descZh: '考试周错题 / 笔记即时打印', descEn: 'Instant print of notes & mistake sets in exam week', descId: 'Cetak catatan & soal salah seketika di musim ujian',
+    priceRp: 'Rp 399.000', channelZh: 'Warung 寄卖点（轻件可入店）', channelEn: 'Warung consignment (shelf-friendly)', channelId: 'Titip jual di warung (ringan, masuk rak)' },
+  { id: 'hw07', icon: '💡', nameZh: '智能学习台灯', nameEn: 'Smart Study Lamp', nameId: 'Lampu Belajar Pintar',
+    descZh: '番茄钟 + 护眼，宿舍熄灯后学习', descEn: 'Pomodoro + eye-care for dorm study after lights-out', descId: 'Pomodoro + anti lelah mata, belajar setelah lampu asrama padam',
+    priceRp: 'Rp 349.000', channelZh: '社群预售', channelEn: 'Community presale', channelId: 'Presale komunitas' },
+  { id: 'hw08', icon: '📖', nameZh: '电子阅读器', nameEn: 'E-Reader', nameId: 'E-Reader',
+    descZh: '教材 PDF + 小说，省纸质书钱', descEn: 'Textbook PDFs + novels — save on paper books', descId: 'PDF buku teks + novel — hemat biaya buku cetak',
+    priceRp: 'Rp 899.000', channelZh: '社群预售', channelEn: 'Community presale', channelId: 'Presale komunitas' },
+  { id: 'hw09', icon: '🃏', nameZh: '电子单词卡（E-ink）', nameEn: 'E-Ink Vocab Flashcards', nameId: 'Kartu Kata E-Ink',
+    descZh: '碎片时间背单词，TOEFL / 雅思备考', descEn: 'Vocabulary in spare moments — TOEFL / IELTS prep', descId: 'Hafal kosakata di sela waktu — persiapan TOEFL / IELTS',
+    priceRp: 'Rp 299.000', channelZh: 'Warung 寄卖点', channelEn: 'Warung consignment', channelId: 'Titip jual di warung' },
+  { id: 'hw10', icon: '🔖', nameZh: '蓝牙防丢器', nameEn: 'Bluetooth Tracker', nameId: 'Pelacak Bluetooth',
+    descZh: '摩托钥匙 / 背包防丢（印尼学生人均摩托）', descEn: 'Keep motorbike keys & backpacks safe — every student rides', descId: 'Anti hilang untuk kunci motor & tas — mahasiswa Indonesia identik motor',
+    priceRp: 'Rp 99.000', channelZh: 'Warung 寄卖点（低价走量款）', channelEn: 'Warung consignment (volume driver)', channelId: 'Titip jual di warung (produk volume)' }
+];
+
+const SKUS_MEALS = [
+  { id: 'meal1', icon: '☀️', timeZh: '早餐', timeEn: 'Breakfast', timeId: 'Sarapan',
+    itemsZh: 'Kopi + Gorengan / Bubur Ayam', itemsEn: 'Kopi + Gorengan / Bubur Ayam', itemsId: 'Kopi + Gorengan / Bubur Ayam',
+    priceRange: 'Rp 5.000–12.000',
+    descZh: '上课前的快速补给', descEn: 'A quick fuel-up before class', descId: 'Bekal cepat sebelum kuliah' },
+  { id: 'meal2', icon: '🍚', timeZh: '午餐', timeEn: 'Lunch', timeId: 'Makan Siang',
+    itemsZh: 'Nasi Padang / Nasi Goreng 套餐', itemsEn: 'Nasi Padang / Nasi Goreng set', itemsId: 'Paket Nasi Padang / Nasi Goreng',
+    priceRange: 'Rp 12.000–25.000',
+    descZh: '课间正餐，分量优先', descEn: 'The real meal between classes — portion first', descId: 'Makan berat di sela kuliah — porsi utama' },
+  { id: 'meal3', icon: '🍌', timeZh: '下午茶', timeEn: 'Afternoon Tea', timeId: 'Jajan Sore',
+    itemsZh: 'Es Kopi Susu + Pisang Goreng', itemsEn: 'Es Kopi Susu + Pisang Goreng', itemsId: 'Es Kopi Susu + Pisang Goreng',
+    priceRange: 'Rp 8.000–15.000',
+    descZh: '自习间隙的社交货币', descEn: 'Social currency between study sessions', descId: 'Mata uang sosial di sela belajar' },
+  { id: 'meal4', icon: '🌙', timeZh: '晚餐', timeEn: 'Dinner', timeId: 'Makan Malam',
+    itemsZh: 'Indomie + Telur + Es Teh', itemsEn: 'Indomie + Telur + Es Teh', itemsId: 'Indomie + Telur + Es Teh',
+    priceRange: 'Rp 10.000–20.000',
+    descZh: '晚自习后的深夜食堂', descEn: 'The late-night canteen after evening study', descId: 'Kantin larut setelah belajar malam' }
+];
+
 /* 暴露给 main.js（file:// 直开兼容，不使用 ES Module） */
 window.WARUNG_DATA = {
   status: WARUNG_STATUS,
   universities: UNIVERSITIES,
-  warungs: WARUNGS
+  warungs: WARUNGS,
+  skusHardware: SKUS_HARDWARE,
+  skusMeals: SKUS_MEALS
 };
