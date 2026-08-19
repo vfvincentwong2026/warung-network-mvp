@@ -1092,6 +1092,30 @@ const SKUS_MEALS = [
     descZh: '晚自习后的深夜食堂', descEn: 'The late-night canteen after evening study', descId: 'Kantin larut setelah belajar malam' }
 ];
 
+/* 对标产品信息：海外市场已验证的对标品 + 品牌 + 参考价 + 官网链接 + 本地产品图
+ * 按 id 合并进 SKUS_HARDWARE 每个对象（新增 benchmark/brand/priceRef/productUrl/image 字段） */
+const SKU_BENCHMARKS = {
+  hw01: { benchmark: 'Ray-Ban Meta Smart Glasses', brand: 'Ray-Ban x Meta', priceRef: 'US$299', productUrl: 'https://www.meta.com/smart-glasses/', image: 'assets/img/sku/hw01.jpg' },
+  hw02: { benchmark: 'Timekettle M3 Translator Earbuds', brand: 'Timekettle', priceRef: 'US$119.99', productUrl: 'https://www.timekettle.co/products/m3-travel-translator-earbuds', image: 'assets/img/sku/hw02.jpg' },
+  hw03: { benchmark: 'PLAUD Note AI Voice Recorder', brand: 'PLAUD', priceRef: 'US$159', productUrl: 'https://www.plaud.ai/products/plaud-note-ai-voice-recorder', image: 'assets/img/sku/hw03.jpg' },
+  hw04: { benchmark: 'Scanmarker Air Pen Scanner', brand: 'Scanmarker', priceRef: 'US$149', productUrl: 'https://scanmarker.com/products/scanmarker-air-pen-scanner', image: 'assets/img/sku/hw04.jpg' },
+  hw05: { benchmark: 'Amazfit Bip 5', brand: 'Amazfit', priceRef: 'US$89.99', productUrl: 'https://us.amazfit.com/products/amazfit-bip-5', image: 'assets/img/sku/hw05.jpg' },
+  hw06: { benchmark: 'Phomemo M02 Inkless Printer', brand: 'Phomemo', priceRef: 'US$66.98', productUrl: 'https://phomemo.com/products/m02-portable-printer', image: 'assets/img/sku/hw06.jpg' },
+  hw07: { benchmark: '大力智能学习灯 T6', brand: '大力智能（字节跳动）', priceRef: '¥998', productUrl: 'https://www.dali.com.cn/products/t6', image: 'assets/img/sku/hw07.jpg' },
+  hw08: { benchmark: 'Kindle Paperwhite (2024)', brand: 'Amazon', priceRef: 'US$159.99', productUrl: 'https://www.amazon.com/dp/B0CFPL6CFY', image: 'assets/img/sku/hw08.jpg' },
+  hw09: { benchmark: '喵喵机电子单词卡 E2', brand: 'PAPERANG 喵喵机', priceRef: '¥139', productUrl: 'https://www.paperang.com/cn/pc/il-product/E2', image: 'assets/img/sku/hw09.jpg' },
+  hw10: { benchmark: 'Apple AirTag', brand: 'Apple', priceRef: 'US$29', productUrl: 'https://www.apple.com/airtag/', image: 'assets/img/sku/hw10.jpg' }
+};
+SKUS_HARDWARE.forEach(function (s) {
+  var b = SKU_BENCHMARKS[s.id];
+  if (!b) return;
+  s.benchmark = b.benchmark;
+  s.brand = b.brand;
+  s.priceRef = b.priceRef;
+  s.productUrl = b.productUrl;
+  s.image = b.image;
+});
+
 /* 暴露给 main.js（file:// 直开兼容，不使用 ES Module） */
 window.WARUNG_DATA = {
   status: WARUNG_STATUS,

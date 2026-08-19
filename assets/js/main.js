@@ -132,6 +132,7 @@
       'sku.meals.title': '一日三餐 · Warung 场景 SKU',
       'sku.meals.intro': '高频刚需的日常基本盘 · 全部由签约 Warung 终端承接',
       'sku.tag': '签约 SKU',
+      'sku.benchmark': '对标',
       'community.eyebrow': 'Komunitas Kampus · 校园社群',
       'community.title': '校园社群网络',
       'community.lead': '双边网络：左边 34 所校园终端店承接货架，右边 34 个校园 WhatsApp 社群承接复购。',
@@ -231,6 +232,7 @@
       'sku.meals.title': 'Three Meals a Day · Warung-Scene SKUs',
       'sku.meals.intro': 'High-frequency daily staples · all fulfilled by signed warung outlets',
       'sku.tag': 'Signed SKU',
+      'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus · Campus Community',
       'community.title': 'Campus Community Network',
       'community.lead': 'A two-sided network: 34 campus terminal stores hold the shelves; 34 campus WhatsApp groups drive repeat purchases.',
@@ -329,6 +331,7 @@
       'sku.meals.title': 'Makan Tiga Kali Sehari · SKU Skenario Warung',
       'sku.meals.intro': 'Kebutuhan harian berfrekuensi tinggi · semua dilayani warung terkontrak',
       'sku.tag': 'SKU Terkontrak',
+      'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus',
       'community.title': 'Jaringan Komunitas Kampus',
       'community.lead': 'Jaringan dua sisi: 34 toko terminal kampus memegang rak; 34 grup WhatsApp kampus mendorong pembelian ulang.',
@@ -438,12 +441,16 @@
         var card = document.createElement('article');
         card.className = 'sku-card';
         card.innerHTML =
-          '<div class="sku-card__top"><span class="sku-card__icon">' + escapeHtml(s.icon) + '</span>' +
-          '<span class="sku-card__tag">' + escapeHtml(T('sku.tag')) + '</span></div>' +
+          /* 产品图置顶（白底 contain 居中，懒加载）；emoji 图标去掉，画面更干净 */
+          (s.image ? '<img class="sku-card__img" src="' + escapeHtml(s.image) + '" alt="' + escapeHtml(pickL10n(s, 'name')) + '" loading="lazy">' : '') +
+          '<div class="sku-card__top"><span class="sku-card__tag">' + escapeHtml(T('sku.tag')) + '</span></div>' +
           '<h3 class="sku-card__name">' + escapeHtml(pickL10n(s, 'name')) + '</h3>' +
           '<p class="sku-card__desc">' + escapeHtml(pickL10n(s, 'desc')) + '</p>' +
           '<div class="sku-card__foot"><span class="sku-card__price">' + escapeHtml(s.priceRp) + '</span>' +
-          '<span class="sku-card__channel">' + escapeHtml(pickL10n(s, 'channel')) + '</span></div>';
+          '<span class="sku-card__channel">' + escapeHtml(pickL10n(s, 'channel')) + '</span></div>' +
+          /* 对标行：mono 小字，点击新开页跳对标品官网 */
+          (s.benchmark ? '<a class="sku-card__bench" href="' + escapeHtml(s.productUrl) + '" target="_blank" rel="noopener">' +
+            escapeHtml(T('sku.benchmark')) + ' ' + escapeHtml(s.benchmark) + ' · ' + escapeHtml(s.priceRef) + '</a>' : '');
         hw.appendChild(card);
       });
     }
