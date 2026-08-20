@@ -849,14 +849,35 @@ h1, h2, h3 {
   font-size: 16px; font-weight: 700; color: var(--text);
   margin-bottom: 8px;
 }
-.meal-card__items { font-size: 13.5px; color: var(--text); margin-bottom: 10px; }
-.meal-card__price {
-  font-family: var(--font-mono);
-  font-size: 13px; font-weight: 700; color: var(--text);
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 8px;
+.meal-card__list { list-style: none; display: flex; flex-direction: column; }
+.meal-item {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px; color: var(--text);
 }
-.meal-card__desc { font-size: 12.5px; color: var(--text-dim); }
+.meal-item:first-child { border-top: none; padding-top: 2px; }
+.meal-item__name { flex: 1 1 auto; min-width: 120px; }
+.meal-item__spice {
+  font-size: 9px; letter-spacing: 1px;
+  color: var(--accent); /* 辣度小圆点：暖橙点缀 */
+  flex: none;
+}
+.meal-item__price {
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 700; color: var(--text);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+.meal-item__tag {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 700; letter-spacing: .04em;
+  color: var(--green);
+  background: var(--green-dim);
+  border-radius: 999px;
+  padding: 2px 8px;
+  flex: none;
+}
 
 /* ---------- 校园社群网络 ---------- */
 .community-grid {
@@ -923,4 +944,132 @@ h1, h2, h3 {
   .sku-grid { grid-template-columns: 1fr; }
   .meals-grid { grid-template-columns: 1fr; }
   .community-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+ * Mitra 店主落地页（mitra.html）
+ * 沿用白色 Grok 风，但更暖：微暖米白底 + WhatsApp 绿 CTA，移动端优先
+ * ============================================================ */
+body.mitra { background: #FFFCF7; }
+.mitra .container { max-width: 720px; } /* 窄栏：手机阅读优先 */
+
+/* --- 顶栏：小 logo + 小号语言切换 --- */
+.mitra-top {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.mitra-top__brand {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 15px;
+  color: var(--text);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.mitra-top__logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px;
+  background: var(--text); color: #fff;
+  border-radius: 7px;
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
+}
+.lang-switch--sm button { padding: 5px 10px; font-size: 11px; }
+
+/* --- Hero --- */
+.mitra-hero { padding: 56px 0 40px; }
+.mitra-hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px; font-weight: 700; letter-spacing: .14em;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.mitra-hero__title { font-size: 38px; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 14px; }
+.mitra-hero__sub { font-size: 16.5px; color: var(--text-dim); margin-bottom: 28px; max-width: 30em; }
+
+/* --- WhatsApp 大 CTA（绿，移动端全宽） --- */
+.btn--wa {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: #25D366; color: #fff;
+  font-weight: 700; font-size: 17px;
+  padding: 17px 30px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, .28);
+  transition: background .18s ease, transform .18s ease;
+}
+.btn--wa:hover { background: #1FB857; transform: translateY(-2px); }
+.btn--wa .wa-ic { font-size: 20px; }
+
+/* --- 区块通用 --- */
+.mitra-section { padding: 40px 0; border-top: 1px solid var(--line); }
+.mitra-section__title { font-size: 24px; margin-bottom: 22px; }
+
+/* --- 三个好处 --- */
+.benefit { display: flex; gap: 14px; padding: 16px 0; border-top: 1px solid var(--line); }
+.benefit:first-of-type { border-top: none; }
+.benefit__icon { font-size: 24px; flex: none; line-height: 1.3; }
+.benefit__title { font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.benefit__desc { font-size: 13.5px; color: var(--text-dim); }
+
+/* --- 三步加入（.mitra 命名空间，避免与首页 .step 流程卡冲突） --- */
+.mitra .step {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 0; border-top: 1px solid var(--line);
+}
+.mitra .step:first-of-type { border-top: none; }
+.mitra .step__num {
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 700;
+  width: 28px; height: 28px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  color: var(--text-dim);
+}
+.mitra .step__title { font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.mitra .step__desc { font-size: 13.5px; color: var(--text-dim); }
+
+/* --- FAQ 手风琴 --- */
+.faq-item { border-top: 1px solid var(--line); }
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-q {
+  appearance: none; background: none; border: none; cursor: pointer;
+  width: 100%; text-align: left;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 16px 2px;
+  font-family: var(--font-body);
+  font-size: 15px; font-weight: 700; color: var(--text);
+}
+.faq-q:hover { color: #000; }
+.faq-ic {
+  font-family: var(--font-mono); font-size: 16px; color: var(--text-faint);
+  transition: transform .2s ease;
+  flex: none;
+}
+.faq-item.open .faq-ic { transform: rotate(45deg); }
+.faq-a { padding: 0 2px 16px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+.faq-a[hidden] { display: none; }
+
+/* --- 诚实声明 --- */
+.mitra-honest {
+  font-size: 12.5px; color: var(--text-faint);
+  border-left: 2px solid var(--line-strong);
+  padding-left: 12px;
+  margin: 8px 0 0;
+}
+
+/* --- 底部 CTA + 回主站 --- */
+.mitra-bottom { padding: 44px 0 28px; text-align: center; border-top: 1px solid var(--line); }
+.mitra-home {
+  display: inline-block;
+  margin-top: 22px;
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--text-faint);
+}
+.mitra-home:hover { color: var(--text); }
+
+@media (max-width: 720px) {
+  .mitra-hero { padding: 40px 0 32px; }
+  .mitra-hero__title { font-size: 30px; }
+  .btn--wa { display: flex; width: 100%; } /* 手机端 CTA 全宽 */
 }

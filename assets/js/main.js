@@ -50,7 +50,7 @@
       'aria.funnel': '渠道漏斗统计', 'aria.footer': '页脚导航',
       'nav.sub': '雅加达 · Jakarta', 'nav.market': '市场机会', 'nav.map': '终端地图',
       'nav.products': '产品服务', 'nav.schedule': '档期', 'nav.process': '流程', 'nav.contact': '联系',
-      'nav.cta': '索取快报',
+      'nav.cta': '索取快报', 'nav.mitra': '店主入驻',
       'hero.eyebrow': 'Peluncur Produk Baru · 新品发射台',
       'hero.title': '让你的新品，<br><span class="hero__accent">48 小时</span>铺进雅加达大学城',
       'hero.subtitle': '中国消费品牌进入印尼的<strong>第一站</strong> —— 用 300 万家 Warung 里的大学城终端网络，做真实货架上的市场验证。',
@@ -124,13 +124,15 @@
       'cta.lead': '索取《雅加达大学生消费快报 · 样板版》—— 看看我们的数据颗粒度，值不值 ¥8,000。',
       'cta.wechat': '微信：warung-network',
       'footer.tagline': '中国消费品牌进入印尼的第一站',
+      'footer.mitra': '店主入驻',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · 地图数据 © OpenStreetMap contributors © CARTO',
       /* SKU 货架 + 校园社群 */
       'sku.eyebrow': 'Etalase SKU · 签约货盘', 'sku.title': '签约 SKU 货架',
       'sku.hardware.title': '首推智能硬件 Top 10',
       'sku.hardware.intro': '为印尼大学生严选的中国智能硬件货盘 · 社群预售 + 校园快闪 + Warung 自提',
       'sku.meals.title': '一日三餐 · Warung 场景 SKU',
-      'sku.meals.intro': '高频刚需的日常基本盘 · 全部由签约 Warung 终端承接',
+      'sku.meals.intro': '印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，全部由签约 Warung 终端承接',
+      'sku.meals.spice': '辣度',
       'sku.tag': '签约 SKU',
       'sku.benchmark': '对标',
       'community.eyebrow': 'Komunitas Kampus · 校园社群',
@@ -151,7 +153,7 @@
       'aria.funnel': 'Channel funnel statistics', 'aria.footer': 'Footer navigation',
       'nav.sub': 'Jakarta · Indonesia', 'nav.market': 'Market', 'nav.map': 'Map',
       'nav.products': 'Products', 'nav.schedule': 'Slots', 'nav.process': 'Process', 'nav.contact': 'Contact',
-      'nav.cta': 'Get the Report',
+      'nav.cta': 'Get the Report', 'nav.mitra': 'For Warung Owners',
       'hero.eyebrow': 'New-Product Launchpad · Jakarta',
       'hero.title': 'Launch your product into Jakarta campus stores in <span class="hero__accent">48 hours</span>',
       'hero.subtitle': 'The <strong>first stop</strong> for Chinese consumer brands entering Indonesia — real-shelf market validation through a campus warung network drawn from 3 million warung nationwide.',
@@ -225,12 +227,14 @@
       'cta.lead': 'Get the "Jakarta Student Consumer Report · Sample Edition" — see whether our data granularity is worth ¥8,000.',
       'cta.wechat': 'WeChat: warung-network',
       'footer.tagline': 'The first stop for Chinese consumer brands entering Indonesia',
+      'footer.mitra': 'For Warung Owners',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · Map data © OpenStreetMap contributors © CARTO',
       'sku.eyebrow': 'Etalase SKU · Signed Shelf', 'sku.title': 'Signed SKU Shelf',
       'sku.hardware.title': 'Top 10 Smart Hardware Picks',
       'sku.hardware.intro': 'Chinese smart hardware curated for Indonesian students · community presale + campus pop-ups + warung pickup',
       'sku.meals.title': 'Three Meals a Day · Warung-Scene SKUs',
-      'sku.meals.intro': 'High-frequency daily staples · all fulfilled by signed warung outlets',
+      'sku.meals.intro': 'A real food map of Indonesian campuses · 16 high-frequency items across 4 dayparts, all fulfilled by signed warung outlets',
+      'sku.meals.spice': 'Spice',
       'sku.tag': 'Signed SKU',
       'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus · Campus Community',
@@ -250,7 +254,7 @@
       'aria.funnel': 'Statistik funnel kanal', 'aria.footer': 'Navigasi footer',
       'nav.sub': 'Jakarta · Indonesia', 'nav.market': 'Pasar', 'nav.map': 'Peta',
       'nav.products': 'Produk', 'nav.schedule': 'Jadwal', 'nav.process': 'Proses', 'nav.contact': 'Kontak',
-      'nav.cta': 'Minta Laporan',
+      'nav.cta': 'Minta Laporan', 'nav.mitra': 'Mitra Warung',
       'hero.eyebrow': 'Peluncur Produk Baru · Jakarta',
       'hero.title': 'Produk baru Anda masuk warung kampus Jakarta dalam <span class="hero__accent">48 jam</span>',
       'hero.subtitle': '<strong>Pintu pertama</strong> merek konsumer Tiongkok masuk Indonesia — validasi pasar di rak nyata melalui jaringan warung kampus dari 3 juta warung di seluruh Indonesia.',
@@ -324,12 +328,14 @@
       'cta.lead': 'Minta "Laporan Konsumen Mahasiswa Jakarta · Edisi Sampel" — nilai sendiri apakah kedalaman data kami sebanding dengan ¥8.000.',
       'cta.wechat': 'WeChat: warung-network',
       'footer.tagline': 'Pintu pertama merek konsumer Tiongkok masuk Indonesia',
+      'footer.mitra': 'Mitra Warung',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · Data peta © OpenStreetMap contributors © CARTO',
       'sku.eyebrow': 'Etalase SKU · SKU Terkontrak', 'sku.title': 'Etalase SKU Terkontrak',
       'sku.hardware.title': 'Top 10 Hardware Pintar Pilihan',
       'sku.hardware.intro': 'Hardware pintar Tiongkok terkurasi untuk mahasiswa Indonesia · presale komunitas + pop-up kampus + ambil di warung',
       'sku.meals.title': 'Makan Tiga Kali Sehari · SKU Skenario Warung',
-      'sku.meals.intro': 'Kebutuhan harian berfrekuensi tinggi · semua dilayani warung terkontrak',
+      'sku.meals.intro': 'Peta kuliner kampus Indonesia yang nyata · 16 item berfrekuensi tinggi di 4 waktu makan, semua dilayani warung terkontrak',
+      'sku.meals.spice': 'Pedas',
       'sku.tag': 'SKU Terkontrak',
       'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus',
@@ -460,11 +466,21 @@
       (DATA.skusMeals || []).forEach(function (m) {
         var card = document.createElement('article');
         card.className = 'meal-card';
+        var itemsHtml = (m.items || []).map(function (it) {
+          var spice = Math.max(0, Math.min(3, it.spice || 0));
+          var dots = '';
+          for (var i = 0; i < 3; i++) dots += i < spice ? '●' : '○';
+          var tag = pickL10n(it, 'tag');
+          return '<li class="meal-item">' +
+            '<span class="meal-item__name">' + escapeHtml(pickL10n(it, 'name')) + '</span>' +
+            '<span class="meal-item__spice" title="' + escapeHtml(T('sku.meals.spice')) + ' ' + spice + '/3" aria-label="' + escapeHtml(T('sku.meals.spice')) + ' ' + spice + '/3">' + dots + '</span>' +
+            '<span class="meal-item__price">' + escapeHtml(it.price) + '</span>' +
+            (tag ? '<span class="meal-item__tag">' + escapeHtml(tag) + '</span>' : '') +
+            '</li>';
+        }).join('');
         card.innerHTML =
-          '<div class="meal-card__time">' + escapeHtml(m.icon) + ' ' + escapeHtml(pickL10n(m, 'time')) + '</div>' +
-          '<div class="meal-card__items">' + escapeHtml(pickL10n(m, 'items')) + '</div>' +
-          '<div class="meal-card__price">' + escapeHtml(m.priceRange) + '</div>' +
-          '<div class="meal-card__desc">' + escapeHtml(pickL10n(m, 'desc')) + '</div>';
+          '<div class="meal-card__time">' + escapeHtml(m.icon) + ' ' + escapeHtml(pickL10n(m, 'slot')) + '</div>' +
+          '<ul class="meal-card__list">' + itemsHtml + '</ul>';
         meals.appendChild(card);
       });
     }

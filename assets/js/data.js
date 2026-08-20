@@ -1074,22 +1074,55 @@ const SKUS_HARDWARE = [
 ];
 
 const SKUS_MEALS = [
-  { id: 'meal1', icon: '☀️', timeZh: '早餐', timeEn: 'Breakfast', timeId: 'Sarapan',
-    itemsZh: 'Kopi + Gorengan / Bubur Ayam', itemsEn: 'Kopi + Gorengan / Bubur Ayam', itemsId: 'Kopi + Gorengan / Bubur Ayam',
-    priceRange: 'Rp 5.000–12.000',
-    descZh: '上课前的快速补给', descEn: 'A quick fuel-up before class', descId: 'Bekal cepat sebelum kuliah' },
-  { id: 'meal2', icon: '🍚', timeZh: '午餐', timeEn: 'Lunch', timeId: 'Makan Siang',
-    itemsZh: 'Nasi Padang / Nasi Goreng 套餐', itemsEn: 'Nasi Padang / Nasi Goreng set', itemsId: 'Paket Nasi Padang / Nasi Goreng',
-    priceRange: 'Rp 12.000–25.000',
-    descZh: '课间正餐，分量优先', descEn: 'The real meal between classes — portion first', descId: 'Makan berat di sela kuliah — porsi utama' },
-  { id: 'meal3', icon: '🍌', timeZh: '下午茶', timeEn: 'Afternoon Tea', timeId: 'Jajan Sore',
-    itemsZh: 'Es Kopi Susu + Pisang Goreng', itemsEn: 'Es Kopi Susu + Pisang Goreng', itemsId: 'Es Kopi Susu + Pisang Goreng',
-    priceRange: 'Rp 8.000–15.000',
-    descZh: '自习间隙的社交货币', descEn: 'Social currency between study sessions', descId: 'Mata uang sosial di sela belajar' },
-  { id: 'meal4', icon: '🌙', timeZh: '晚餐', timeEn: 'Dinner', timeId: 'Makan Malam',
-    itemsZh: 'Indomie + Telur + Es Teh', itemsEn: 'Indomie + Telur + Es Teh', itemsId: 'Indomie + Telur + Es Teh',
-    priceRange: 'Rp 10.000–20.000',
-    descZh: '晚自习后的深夜食堂', descEn: 'The late-night canteen after evening study', descId: 'Kantin larut setelah belajar malam' }
+  { id: 'sarapan', icon: '☀️', slotZh: '早餐', slotEn: 'Breakfast', slotId: 'Sarapan',
+    items: [
+      { nameZh: 'Nasi Uduk 椰浆饭', nameEn: 'Nasi Uduk (coconut rice)', nameId: 'Nasi Uduk',
+        price: 'Rp 10–15rb', spice: 1,
+        tagZh: '国民早餐', tagEn: 'National breakfast', tagId: 'Sarapan nasional' },
+      { nameZh: 'Bubur Ayam 鸡肉粥', nameEn: 'Bubur Ayam (chicken congee)', nameId: 'Bubur Ayam',
+        price: 'Rp 8–12rb', spice: 0 },
+      { nameZh: 'Kopi + Gorengan 咖啡炸物', nameEn: 'Kopi + Gorengan (coffee & fritters)', nameId: 'Kopi + Gorengan',
+        price: 'Rp 5–8rb', spice: 1 }
+    ] },
+  { id: 'siang', icon: '🍚', slotZh: '午餐', slotEn: 'Lunch', slotId: 'Makan Siang',
+    items: [
+      { nameZh: 'Ayam Geprek 辣酱炸鸡饭', nameEn: 'Ayam Geprek (smashed spicy chicken)', nameId: 'Ayam Geprek',
+        price: 'Rp 12–18rb', spice: 3,
+        tagZh: '校园顶流', tagEn: 'Campus favorite', tagId: 'Primadona kampus' },
+      { nameZh: 'Nasi Padang 巴东饭', nameEn: 'Nasi Padang', nameId: 'Nasi Padang',
+        price: 'Rp 15–25rb', spice: 2 },
+      { nameZh: 'Mie Ayam 鸡肉面', nameEn: 'Mie Ayam (chicken noodles)', nameId: 'Mie Ayam',
+        price: 'Rp 12–18rb', spice: 1 },
+      { nameZh: 'Bakso 肉丸汤', nameEn: 'Bakso (meatball soup)', nameId: 'Bakso',
+        price: 'Rp 12–18rb', spice: 1 }
+    ] },
+  { id: 'sore', icon: '🍌', slotZh: '下午茶', slotEn: 'Afternoon', slotId: 'Sore',
+    items: [
+      { nameZh: 'Es Kopi Susu 冰奶咖', nameEn: 'Es Kopi Susu (iced milk coffee)', nameId: 'Es Kopi Susu',
+        price: 'Rp 8–15rb', spice: 0 },
+      { nameZh: 'Seblak 辣煮年糕', nameEn: 'Seblak (spicy wet crackers)', nameId: 'Seblak',
+        price: 'Rp 10–15rb', spice: 3,
+        tagZh: 'Gen Z 爆品', tagEn: 'Gen Z hit', tagId: 'Primadona Gen Z' },
+      { nameZh: 'Es Teh Manis 甜冰茶', nameEn: 'Es Teh Manis (sweet iced tea)', nameId: 'Es Teh Manis',
+        price: 'Rp 3–5rb', spice: 0,
+        tagZh: '国民甜茶', tagEn: 'National sweet tea', tagId: 'Teh manis nasional' },
+      { nameZh: 'Pisang Goreng 炸香蕉', nameEn: 'Pisang Goreng (fried banana)', nameId: 'Pisang Goreng',
+        price: 'Rp 5–10rb', spice: 0 },
+      { nameZh: 'Martabak Mini 迷你甜饼', nameEn: 'Martabak Mini', nameId: 'Martabak Mini',
+        price: 'Rp 10–15rb', spice: 0 }
+    ] },
+  { id: 'malam', icon: '🌙', slotZh: '晚餐 / 夜宵', slotEn: 'Dinner / Late Night', slotId: 'Malam',
+    items: [
+      { nameZh: 'Indomie + Telur 营多面加蛋', nameEn: 'Indomie + Telur (noodles & egg)', nameId: 'Indomie + Telur',
+        price: 'Rp 10–15rb', spice: 1 },
+      { nameZh: 'Nasi Kucing Angkringan 猫饭', nameEn: 'Nasi Kucing (angkringan mini rice)', nameId: 'Nasi Kucing Angkringan',
+        price: 'Rp 3–10rb', spice: 1,
+        tagZh: '夜宵文化', tagEn: 'Late-night culture', tagId: 'Budaya begadang' },
+      { nameZh: 'Sate Ayam 鸡肉沙嗲', nameEn: 'Sate Ayam (chicken satay)', nameId: 'Sate Ayam',
+        price: 'Rp 15–25rb', spice: 1 },
+      { nameZh: 'Warmindo 24h 煮面档', nameEn: 'Warmindo 24h (instant-noodle stall)', nameId: 'Warmindo 24h',
+        price: 'Rp 8–15rb', spice: 2 }
+    ] }
 ];
 
 /* 对标产品信息：海外市场已验证的对标品 + 品牌 + 参考价 + 官网链接 + 本地产品图
@@ -1122,5 +1155,6 @@ window.WARUNG_DATA = {
   universities: UNIVERSITIES,
   warungs: WARUNGS,
   skusHardware: SKUS_HARDWARE,
-  skusMeals: SKUS_MEALS
+  skusMeals: SKUS_MEALS,
+  whatsappOpsNumber: WHATSAPP_OPS_NUMBER // 运营占位号：主站社群链接 + mitra.html 入驻 CTA 共用
 };

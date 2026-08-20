@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- description 由 mitra.js 随语言切换更新（key: meta.desc），默认印尼语 -->
+  <meta name="description" content="Gabung Mitra Warung Network — tanpa aplikasi baru, tanpa biaya, cukup WhatsApp. Program mitra tahap awal untuk warung kampus.">
+  <title>Mitra Warung Network — Warung Anda, Cuan Lebih</title>
+
+  <!-- 字体与主站一致：Space Grotesk + JetBrains Mono + Noto Sans SC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- 本地资源带版本号（与主站同步递增） -->
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
+</head>
+<body class="mitra">
+
+  <!-- 顶栏：小 logo（回主站）+ 小号语言切换 ID | EN | 中 -->
+  <header class="mitra-top container">
+    <a class="mitra-top__brand" href="index.html">
+      <span class="mitra-top__logo" aria-hidden="true">WN</span>
+      Warung Network
+    </a>
+    <div class="lang-switch lang-switch--sm" id="langSwitch" role="group" aria-label="Bahasa / Language / 语言">
+      <button type="button" data-lang="id" class="active">ID</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="zh">中</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. Hero -->
+    <section class="mitra-hero">
+      <div class="mitra-hero__eyebrow" data-i18n="hero.eyebrow">Mitra Warung Network</div>
+      <h1 class="mitra-hero__title" data-i18n="hero.title">Warung Anda, Cuan Lebih.</h1>
+      <p class="mitra-hero__sub" data-i18n="hero.sub">Tanpa aplikasi baru. Tanpa biaya. Cukup WhatsApp.</p>
+      <a class="btn--wa js-wa-cta" href="#" target="_blank" rel="noopener">
+        <span class="wa-ic" aria-hidden="true">💬</span>
+        <span data-i18n="cta.wa">Gabung via WhatsApp</span>
+      </a>
+    </section>
+
+    <!-- 2. 三个好处 -->
+    <section class="mitra-section">
+      <h2 class="mitra-section__title" data-i18n="benefits.title">Kenapa gabung?</h2>
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">💰</span>
+        <div>
+          <div class="benefit__title" data-i18n="b1.title">Fee pajang produk merek</div>
+          <div class="benefit__desc" data-i18n="b1.desc">Pendapatan tetap tiap bulan di luar jualan harian Anda.</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">📱</span>
+        <div>
+          <div class="benefit__title" data-i18n="b2.title">Notifikasi order langsung ke WhatsApp</div>
+          <div class="benefit__desc" data-i18n="b2.desc">Terima lebih banyak order di jam ramai, tanpa aplikasi tambahan.</div>
+        </div>
+      </div>
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">📦</span>
+        <div>
+          <div class="benefit__title" data-i18n="b3.title">Diskon kulakan & info barang laris</div>
+          <div class="benefit__desc" data-i18n="b3.desc">Harga restock lebih hemat dan tahu produk apa yang paling dicari mahasiswa.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 三步加入 -->
+    <section class="mitra-section">
+      <h2 class="mitra-section__title" data-i18n="steps.title">Cara gabung — 3 langkah</h2>
+      <div class="step">
+        <span class="step__num">1</span>
+        <div>
+          <div class="step__title" data-i18n="s1.title">Kirim lokasi & foto warung</div>
+          <div class="step__desc" data-i18n="s1.desc">Lewat WhatsApp — cukup share lokasi dan foto depan warung Anda.</div>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step__num">2</span>
+        <div>
+          <div class="step__title" data-i18n="s2.title">Tim kami verifikasi</div>
+          <div class="step__desc" data-i18n="s2.desc">Kami cek lokasi dan kesiapan warung, biasanya 1–2 hari.</div>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step__num">3</span>
+        <div>
+          <div class="step__title" data-i18n="s3.title">Terima tugas & penghasilan</div>
+          <div class="step__desc" data-i18n="s3.desc">Mulai terima tugas pajang produk dan order — penghasilan masuk tiap bulan.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ 手风琴 -->
+    <section class="mitra-section">
+      <h2 class="mitra-section__title" data-i18n="faq.title">Pertanyaan umum</h2>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span data-i18n="faq.q1">Gratis?</span>
+          <span class="faq-ic" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a" hidden data-i18n="faq.a1">Ya, 100% gratis. Tidak ada biaya pendaftaran maupun biaya bulanan.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span data-i18n="faq.q2">Perlu aplikasi?</span>
+          <span class="faq-ic" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a" hidden data-i18n="faq.a2">Tidak perlu. Semua berjalan lewat WhatsApp yang sudah Anda pakai sehari-hari.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span data-i18n="faq.q3">Bagaimana saya dibayar?</span>
+          <span class="faq-ic" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a" hidden data-i18n="faq.a3">Transfer via QRIS / DANA, dihitung dan dibayarkan setiap bulan.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span data-i18n="faq.q4">Warung saya kecil, bisa?</span>
+          <span class="faq-ic" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a" hidden data-i18n="faq.a4">Bisa. Selama warung Anda berada dalam radius 1 km dari kampus, Anda bisa mendaftar.</div>
+      </div>
+    </section>
+
+    <!-- 5. 诚实声明 -->
+    <section class="mitra-section">
+      <p class="mitra-honest" data-i18n="honest">Program mitra tahap awal — jadi bagian dari gelombang pertama warung kampus.</p>
+    </section>
+
+    <!-- 6. 底部大 CTA + 回主站 -->
+    <section class="mitra-bottom">
+      <a class="btn--wa js-wa-cta" href="#" target="_blank" rel="noopener">
+        <span class="wa-ic" aria-hidden="true">💬</span>
+        <span data-i18n="cta.wa">Gabung via WhatsApp</span>
+      </a>
+      <br>
+      <a class="mitra-home" href="index.html" data-i18n="home">← ke Warung Network</a>
+    </section>
+
+  </main>
+
+  <script src="assets/js/data.js?v=6"></script>
+  <script src="assets/js/mitra.js?v=6"></script>
+</body>
+</html>
