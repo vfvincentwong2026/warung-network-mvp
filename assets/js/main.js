@@ -530,6 +530,7 @@
         var dots = '';
         for (var i = 0; i < 3; i++) dots += i < spice ? '●' : '○';
         return '<li class="snk-item">' +
+          (s.img ? '<img class="snk-item__img" src="' + escapeHtml(s.img) + '" alt="' + escapeHtml(pickL10n(s, 'name')) + '" loading="lazy">' : '') +
           '<span class="snk-item__name">' + escapeHtml(pickL10n(s, 'name')) + '</span>' +
           '<span class="snk-item__spice" title="' + escapeHtml(T('sku.meals.spice')) + ' ' + spice + '/3" aria-label="' + escapeHtml(T('sku.meals.spice')) + ' ' + spice + '/3">' + dots + '</span>' +
           '<span class="snk-item__price">' + escapeHtml(s.price) + '</span>' +

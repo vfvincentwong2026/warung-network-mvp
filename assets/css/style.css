@@ -1098,12 +1098,17 @@ body.mitra { background: #FFFCF7; }
 }
 .snk-card__list { list-style: none; display: flex; flex-direction: column; }
 .snk-item {
-  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   padding: 8px 0;
   border-top: 1px solid var(--line);
   font-size: 13px; color: var(--text);
 }
 .snk-item:first-child { border-top: none; padding-top: 2px; }
+.snk-item__img {
+  width: 52px; height: 52px; flex: none;
+  object-fit: contain; background: #fff;
+  border: 1px solid var(--line); border-radius: 8px;
+}
 .snk-item__name { flex: 1 1 auto; min-width: 110px; }
 .snk-item__spice {
   font-size: 9px; letter-spacing: 1px;
