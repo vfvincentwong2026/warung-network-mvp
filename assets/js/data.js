@@ -1125,6 +1125,75 @@ const SKUS_MEALS = [
     ] }
 ];
 
+/* ============================================================
+ * 校园零食货架数据
+ * SKUS_SNACKS — 包装食品 6 大类 × 3 品项 = 18 SKU
+ * 字段：cat（类别 slug）/ 三语 name / price（Rp x–y rb）/ spice（0-3）/ 三语 bench（对标本地霸主）
+ * 清真红线：全清单无猪肉、无酒精成分（自查确认）
+ * ============================================================ */
+const SKUS_SNACKS = [
+  /* --- keripik 辣味膨化 --- */
+  { cat: 'keripik', nameZh: '辣味木薯片', nameEn: 'Spicy Cassava Chips', nameId: 'Keripik Singkong Pedas',
+    price: 'Rp 5–10 rb', spice: 2,
+    benchZh: '对标 Maicih', benchEn: 'Benchmark: Maicih', benchId: 'Benchmark: Maicih' },
+  { cat: 'keripik', nameZh: '柠叶辣鱼丸脆', nameEn: 'Spicy Meatball Crackers', nameId: 'Basreng Daun Jeruk',
+    price: 'Rp 5–15 rb', spice: 3,
+    benchZh: '对标 TikTok 网红 Basreng 品牌', benchEn: 'Benchmark: TikTok-viral basreng brands', benchId: 'Benchmark: merek basreng viral TikTok' },
+  { cat: 'keripik', nameZh: '辣味通心粉脆', nameEn: 'Spicy Macaroni Snack', nameId: 'Makaroni Pedas',
+    price: 'Rp 3–8 rb', spice: 2,
+    benchZh: '对标 Makaroni Ngehe', benchEn: 'Benchmark: Makaroni Ngehe', benchId: 'Benchmark: Makaroni Ngehe' },
+  /* --- mie 方便杯面 --- */
+  { cat: 'mie', nameZh: '洋葱鸡味杯面', nameEn: 'Chicken Onion Cup Noodles', nameId: 'Mi Cup Ayam Bawang',
+    price: 'Rp 5–7 rb', spice: 0,
+    benchZh: '对标 Pop Mie', benchEn: 'Benchmark: Pop Mie', benchId: 'Benchmark: Pop Mie' },
+  { cat: 'mie', nameZh: '印尼捞面杯面', nameEn: 'Fried Noodle Cup', nameId: 'Mi Goreng Cup',
+    price: 'Rp 4–6 rb', spice: 1,
+    benchZh: '对标 Indomie Mi Goreng Cup', benchEn: 'Benchmark: Indomie Mi Goreng Cup', benchId: 'Benchmark: Indomie Mi Goreng Cup' },
+  { cat: 'mie', nameZh: '韩式辣杯面', nameEn: 'Korean Spicy Cup Noodles', nameId: 'Mi Korean Spicy',
+    price: 'Rp 5–8 rb', spice: 3,
+    benchZh: '对标 Mie Sedaap Korean Spicy', benchEn: 'Benchmark: Mie Sedaap Korean Spicy', benchId: 'Benchmark: Mie Sedaap Korean Spicy' },
+  /* --- wafer 威化饼干 --- */
+  { cat: 'wafer', nameZh: '奶酪威化', nameEn: 'Cheese Wafer', nameId: 'Wafer Keju',
+    price: 'Rp 2–5 rb', spice: 0,
+    benchZh: '对标 Nabati Richeese', benchEn: 'Benchmark: Nabati Richeese', benchId: 'Benchmark: Nabati Richeese' },
+  { cat: 'wafer', nameZh: '巧克力威化', nameEn: 'Chocolate Wafer', nameId: 'Wafer Cokelat',
+    price: 'Rp 2–5 rb', spice: 0,
+    benchZh: '对标 Tango / Beng-Beng', benchEn: 'Benchmark: Tango / Beng-Beng', benchId: 'Benchmark: Tango / Beng-Beng' },
+  { cat: 'wafer', nameZh: '巧克力夹心饼干', nameEn: 'Choco-Filled Biscuits', nameId: 'Biskuit Isi Cokelat',
+    price: 'Rp 3–6 rb', spice: 0,
+    benchZh: '对标 Nextar / Better', benchEn: 'Benchmark: Nextar / Better', benchId: 'Benchmark: Nextar / Better' },
+  /* --- permen 糖果巧克力 --- */
+  { cat: 'permen', nameZh: '咖啡糖', nameEn: 'Coffee Candy', nameId: 'Permen Kopi',
+    price: 'Rp 1–3 rb', spice: 0,
+    benchZh: '对标 Kopiko', benchEn: 'Benchmark: Kopiko', benchId: 'Benchmark: Kopiko' },
+  { cat: 'permen', nameZh: '巧克力棒', nameEn: 'Chocolate Bar', nameId: 'Cokelat Batang',
+    price: 'Rp 5–10 rb', spice: 0,
+    benchZh: '对标 SilverQueen', benchEn: 'Benchmark: SilverQueen', benchId: 'Benchmark: SilverQueen' },
+  { cat: 'permen', nameZh: '薄荷糖', nameEn: 'Mint Candy', nameId: 'Permen Mint',
+    price: 'Rp 2–5 rb', spice: 0,
+    benchZh: '对标 Mentos / Fox\'s', benchEn: 'Benchmark: Mentos / Fox\'s', benchId: 'Benchmark: Mentos / Fox\'s' },
+  /* --- minuman 即饮饮料 --- */
+  { cat: 'minuman', nameZh: '瓶装甜茶', nameEn: 'Bottled Sweet Tea', nameId: 'Teh Manis Botol',
+    price: 'Rp 3–5 rb', spice: 0,
+    benchZh: '对标 Teh Pucuk / Teh Botol', benchEn: 'Benchmark: Teh Pucuk / Teh Botol', benchId: 'Benchmark: Teh Pucuk / Teh Botol' },
+  { cat: 'minuman', nameZh: '乳酸饮料', nameEn: 'Yogurt Drink', nameId: 'Minuman Yogurt',
+    price: 'Rp 5–8 rb', spice: 0,
+    benchZh: '对标 Cimory', benchEn: 'Benchmark: Cimory', benchId: 'Benchmark: Cimory' },
+  { cat: 'minuman', nameZh: '能量饮料', nameEn: 'Energy Drink', nameId: 'Minuman Energi',
+    price: 'Rp 3–6 rb', spice: 0,
+    benchZh: '对标 Kratingdaeng / M150', benchEn: 'Benchmark: Kratingdaeng / M150', benchId: 'Benchmark: Kratingdaeng / M150' },
+  /* --- kopi 咖啡冲调 --- */
+  { cat: 'kopi', nameZh: '三合一咖啡', nameEn: '3-in-1 Coffee Sachet', nameId: 'Kopi 3in1',
+    price: 'Rp 2–3 rb', spice: 0,
+    benchZh: '对标 Good Day / Nescafé', benchEn: 'Benchmark: Good Day / Nescafé', benchId: 'Benchmark: Good Day / Nescafé' },
+  { cat: 'kopi', nameZh: '棕榈糖奶咖', nameEn: 'Palm Sugar Milk Coffee', nameId: 'Kopi Susu Gula Aren',
+    price: 'Rp 5–10 rb', spice: 0,
+    benchZh: '对标 Kopi Kenangan RTD', benchEn: 'Benchmark: Kopi Kenangan RTD', benchId: 'Benchmark: Kopi Kenangan RTD' },
+  { cat: 'kopi', nameZh: '巧克力奶冲调', nameEn: 'Choco Milk Sachet', nameId: 'Susu Cokelat Sachet',
+    price: 'Rp 3–5 rb', spice: 0,
+    benchZh: '对标 Milo 3in1', benchEn: 'Benchmark: Milo 3in1', benchId: 'Benchmark: Milo 3in1' }
+];
+
 /* 对标产品信息：海外市场已验证的对标品 + 品牌 + 参考价 + 官网链接 + 本地产品图
  * 按 id 合并进 SKUS_HARDWARE 每个对象（新增 benchmark/brand/priceRef/productUrl/image 字段） */
 const SKU_BENCHMARKS = {
@@ -1156,5 +1225,6 @@ window.WARUNG_DATA = {
   warungs: WARUNGS,
   skusHardware: SKUS_HARDWARE,
   skusMeals: SKUS_MEALS,
+  skusSnacks: SKUS_SNACKS,
   whatsappOpsNumber: WHATSAPP_OPS_NUMBER // 运营占位号：主站社群链接 + mitra.html 入驻 CTA 共用
 };

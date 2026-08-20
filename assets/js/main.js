@@ -133,6 +133,10 @@
       'sku.meals.title': '一日三餐 · Warung 场景 SKU',
       'sku.meals.intro': '印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，全部由签约 Warung 终端承接',
       'sku.meals.spice': '辣度',
+      'skuSnacks': '校园零食货架',
+      'skuSnacksSub': 'Warung 最高频的走量货盘 · 6 大类 18 个品项 · 每一格都是中国品牌替代本地霸主的机会',
+      'catKeripik': '辣味膨化', 'catMie': '方便杯面', 'catWafer': '威化饼干',
+      'catPermen': '糖果巧克力', 'catMinuman': '即饮饮料', 'catKopi': '咖啡冲调',
       'sku.tag': '签约 SKU',
       'sku.benchmark': '对标',
       'community.eyebrow': 'Komunitas Kampus · 校园社群',
@@ -235,6 +239,10 @@
       'sku.meals.title': 'Three Meals a Day · Warung-Scene SKUs',
       'sku.meals.intro': 'A real food map of Indonesian campuses · 16 high-frequency items across 4 dayparts, all fulfilled by signed warung outlets',
       'sku.meals.spice': 'Spice',
+      'skuSnacks': 'Campus Snack Shelf',
+      'skuSnacksSub': 'The highest-frequency shelf in every warung · 6 categories, 18 SKUs · each one an opportunity for Chinese brands',
+      'catKeripik': 'Spicy Chips & Crackers', 'catMie': 'Instant Cup Noodles', 'catWafer': 'Wafers & Biscuits',
+      'catPermen': 'Candy & Chocolate', 'catMinuman': 'Ready-to-Drink', 'catKopi': 'Coffee & Sachets',
       'sku.tag': 'Signed SKU',
       'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus · Campus Community',
@@ -336,6 +344,10 @@
       'sku.meals.title': 'Makan Tiga Kali Sehari · SKU Skenario Warung',
       'sku.meals.intro': 'Peta kuliner kampus Indonesia yang nyata · 16 item berfrekuensi tinggi di 4 waktu makan, semua dilayani warung terkontrak',
       'sku.meals.spice': 'Pedas',
+      'skuSnacks': 'Rak Snack Kampus',
+      'skuSnacksSub': 'Etalase paling laris di warung · 6 kategori, 18 produk · peluang besar untuk merek baru',
+      'catKeripik': 'Keripik & Snack Pedas', 'catMie': 'Mi Instan Cup', 'catWafer': 'Wafer & Biskuit',
+      'catPermen': 'Permen & Cokelat', 'catMinuman': 'Minuman Kemasan', 'catKopi': 'Kopi & Sachet',
       'sku.tag': 'SKU Terkontrak',
       'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus',
@@ -500,6 +512,39 @@
     }
   }
 
+  /* --- 校园零食货架（本地常量数据，按类别分组渲染，切语言需重渲染） --- */
+  var SNACK_CATS = ['keripik', 'mie', 'wafer', 'permen', 'minuman', 'kopi'];
+  var SNACK_CAT_KEYS = {
+    keripik: 'catKeripik', mie: 'catMie', wafer: 'catWafer',
+    permen: 'catPermen', minuman: 'catMinuman', kopi: 'catKopi'
+  };
+  function renderSnacks() {
+    var grid = document.getElementById('snacksGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    SNACK_CATS.forEach(function (cat) {
+      var items = (DATA.skusSnacks || []).filter(function (s) { return s.cat === cat; });
+      if (!items.length) return;
+      var rows = items.map(function (s) {
+        var spice = Math.max(0, Math.min(3, s.spice || 0));
+        var dots = '';
+        for (var i = 0; i < 3; i++) dots += i < spice ? '●' : '○';
+        return '<li class="snk-item">' +
+          '<span class="snk-item__name">' + escapeHtml(pickL10n(s, 'name')) + '</span>' +
+          '<span class="snk-item__spice" title="' + escapeHtml(T('sku.meals.spice')) + ' ' + spice + '/3" aria-label="' + escapeHtml(T('sku.meals.spice')) + ' ' + spice + '/3">' + dots + '</span>' +
+          '<span class="snk-item__price">' + escapeHtml(s.price) + '</span>' +
+          '<span class="snk-item__bench">' + escapeHtml(pickL10n(s, 'bench')) + '</span>' +
+          '</li>';
+      }).join('');
+      var card = document.createElement('article');
+      card.className = 'snk-card';
+      card.innerHTML =
+        '<h3 class="snk-card__cat">' + escapeHtml(T(SNACK_CAT_KEYS[cat])) + '</h3>' +
+        '<ul class="snk-card__list">' + rows + '</ul>';
+      grid.appendChild(card);
+    });
+  }
+
   /* ================= 启动序列 ================= */
 
   // 1) 与地图数据无关的 UI：立即初始化（脚本位于 body 末尾，DOM 已就绪）
@@ -523,6 +568,7 @@
     applyStaticI18n();
     renderSlots();
     renderSkuAndCommunity(); // SKU 货架 + 校园社群卡随语言重渲染
+    renderSnacks(); // 零食货架随语言重渲染
     mapCtl.setLang(); // 重渲染漏斗/图例/chips/下拉/popup/徽章 title/角标
     document.querySelectorAll('#langSwitch button').forEach(function (b) {
       b.classList.toggle('active', b.dataset.lang === lang);
@@ -575,9 +621,10 @@
     }, { threshold: 0.4 });
     counters.forEach(function (c) { counterObserver.observe(c); });
 
-    /* --- 档期坑位 + SKU/社群卡首次渲染（须在渐显 observer 注册之前，动态卡片才能被观察到） --- */
+    /* --- 档期坑位 + SKU/社群/零食卡首次渲染（须在渐显 observer 注册之前，动态卡片才能被观察到） --- */
     renderSlots();
     renderSkuAndCommunity();
+    renderSnacks();
 
     /* --- 滚动渐显（淡入 + 上移 12px，300ms ease-out） --- */
     var revealObserver = new IntersectionObserver(function (entries) {
@@ -590,7 +637,7 @@
     document.querySelectorAll(
       '.section__eyebrow, .section__title, .section__lead, ' +
       '.stat-card, .brand-chip, .product-card, .slot-month, .rule, .step, .trust-card, ' +
-      '.sku-card, .meal-card, .community-card, ' +
+      '.sku-card, .meal-card, .community-card, .snk-card, ' +
       '.compliance, .funnel, .map-filters, ' +
       '.hero__eyebrow, .hero__title, .hero__subtitle, .hero__ctas, .hero__note, .hero__strip, ' +
       '.cta__title, .cta__lead, .cta__contacts'

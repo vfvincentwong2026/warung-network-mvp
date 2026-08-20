@@ -17,7 +17,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- 本地资源带版本号：以后每次部署递增 v 号即可强制刷新缓存（避免新旧文件混装破版） -->
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
 
@@ -155,7 +155,7 @@
     </section>
 
     <!-- ============ 4.5 签约 SKU 货架 ============ -->
-    <section class="section section--alt" id="skus">
+    <section class="section" id="skus">
       <div class="container">
         <p class="section__eyebrow" data-i18n="sku.eyebrow">Etalase SKU · 签约货盘</p>
         <h2 class="section__title" data-i18n="sku.title">签约 SKU 货架</h2>
@@ -169,6 +169,15 @@
         <h3 class="sku-block__title" data-i18n="sku.meals.title">一日三餐 · Warung 场景 SKU</h3>
         <p class="sku-block__intro" data-i18n="sku.meals.intro">印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，全部由签约 Warung 终端承接</p>
         <div class="meals-grid" id="mealsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4.55 校园零食货架（包装食品 SKU，JS 从 data.js SKUS_SNACKS 按类别渲染） ============ -->
+    <section class="section section--alt" id="snacks">
+      <div class="container">
+        <h2 class="section__title" data-i18n="skuSnacks">校园零食货架</h2>
+        <p class="section__lead" data-i18n="skuSnacksSub">Warung 最高频的走量货盘 · 6 大类 18 个品项 · 每一格都是中国品牌替代本地霸主的机会</p>
+        <div class="snk-grid" id="snacksGrid"></div>
       </div>
     </section>
 
@@ -390,8 +399,8 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <!-- 本地资源带版本号：每次部署递增 v 号强制刷新 -->
-  <script src="assets/js/data.js?v=6"></script>
-  <script src="assets/js/sheet-loader.js?v=6"></script>
-  <script src="assets/js/main.js?v=6"></script>
+  <script src="assets/js/data.js?v=7"></script>
+  <script src="assets/js/sheet-loader.js?v=7"></script>
+  <script src="assets/js/main.js?v=7"></script>
 </body>
 </html>

@@ -1073,3 +1073,58 @@ body.mitra { background: #FFFCF7; }
   .mitra-hero__title { font-size: 30px; }
   .btn--wa { display: flex; width: 100%; } /* 手机端 CTA 全宽 */
 }
+
+/* ============================================================
+ * 校园零食货架（index.html #snacks，snk- 命名空间，杜绝全局冲突）
+ * 6 类卡片网格 + 品项行（品名 / 辣度点 / mono 价格 / 对标行）
+ * ============================================================ */
+.snk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.snk-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  transition: border-color .18s ease, transform .18s ease;
+}
+.snk-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.snk-card__cat {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 700; color: var(--text);
+  margin-bottom: 10px;
+}
+.snk-card__list { list-style: none; display: flex; flex-direction: column; }
+.snk-item {
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px; color: var(--text);
+}
+.snk-item:first-child { border-top: none; padding-top: 2px; }
+.snk-item__name { flex: 1 1 auto; min-width: 110px; }
+.snk-item__spice {
+  font-size: 9px; letter-spacing: 1px;
+  color: var(--accent);
+  flex: none;
+}
+.snk-item__price {
+  font-family: var(--font-mono);
+  font-size: 11.5px; font-weight: 700; color: var(--text);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+.snk-item__bench {
+  flex-basis: 100%;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+}
+@media (max-width: 960px) {
+  .snk-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .snk-grid { grid-template-columns: 1fr; }
+}
