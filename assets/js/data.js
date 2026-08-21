@@ -1020,11 +1020,11 @@ const WARUNGS = [
 ];
 
 /* ============================================================
- * ⚠️ 占位运营号：6281234567890 为占位 WhatsApp 号码，
- *    上线前必须替换为真实运营号（改下面这一个常量即可全局生效）。
+ * WhatsApp 运营号（印尼 +62 823-2112-2968）：
+ * 社群加入链接 + mitra 页入驻 CTA 共用此常量，改一处全局生效。
  * 为每所大学生成社群加入链接，预填印尼语自我介绍文案。
  * ============================================================ */
-const WHATSAPP_OPS_NUMBER = '6281234567890'; // ⚠️ 占位号码，上线前替换
+const WHATSAPP_OPS_NUMBER = '628232112968';
 UNIVERSITIES.forEach(function (u) {
   var waUrl = 'https://wa.me/' + WHATSAPP_OPS_NUMBER + '?text=' +
     encodeURIComponent('Halo, saya mahasiswa ' + u.nameId + ', mau gabung komunitas kampus');
@@ -1036,7 +1036,7 @@ UNIVERSITIES.forEach(function (u) {
 });
 
 /* ============================================================
- * 签约 SKU 货架数据
+ * 首发 SKU 货架数据
  * SKUS_HARDWARE — 首推智能硬件 Top 10（字段：id, icon, 三语 name/desc/channel, priceRp）
  * SKUS_MEALS    — 一日三餐 Warung 场景 SKU（时段 / 代表套餐 / 客单价区间 / 场景）
  * ============================================================ */
@@ -1226,5 +1226,5 @@ window.WARUNG_DATA = {
   skusHardware: SKUS_HARDWARE,
   skusMeals: SKUS_MEALS,
   skusSnacks: SKUS_SNACKS,
-  whatsappOpsNumber: WHATSAPP_OPS_NUMBER // 运营占位号：主站社群链接 + mitra.html 入驻 CTA 共用
+  whatsappOpsNumber: WHATSAPP_OPS_NUMBER // 真实运营号：主站社群链接 + mitra.html 入驻 CTA 共用
 };

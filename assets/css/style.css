@@ -392,16 +392,16 @@ h1, h2, h3 {
 }
 @keyframes legendPulse { 0% { transform: scale(.5); opacity: .9; } 100% { transform: scale(1.4); opacity: 0; } }
 
-/* 数据来源角标：默认隐藏；真实数据加载后点亮「实时数据」 */
+/* 数据来源角标：双态常显——默认黄色「演示数据 · 示例网络」；实时数据加载后转绿 */
 .map-demo-note {
-  display: none;
+  display: block;
   position: absolute;
   right: 14px; bottom: 22px;
   z-index: 500;
   background: rgba(255, 255, 255, .92);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(22, 163, 74, .4);
-  color: var(--green);
+  border: 1px solid rgba(217, 119, 6, .45);
+  color: #b45309;
   font-family: var(--font-mono);
   font-size: 11.5px;
   letter-spacing: .04em;
@@ -409,7 +409,10 @@ h1, h2, h3 {
   border-radius: 999px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
 }
-.map-demo-note--live { display: block; }
+.map-demo-note--live {
+  border-color: rgba(22, 163, 74, .4);
+  color: var(--green);
+}
 
 /* 大学徽章 marker（浅色适配：白底黑字黑边） */
 .uni-marker {
@@ -750,7 +753,7 @@ h1, h2, h3 {
 }
 
 /* ============================================================
- * v4 新增模块：签约 SKU 货架 + 校园社群网络
+ * v4 新增模块：首发 SKU 货架 + 校园社群网络
  * ============================================================ */
 
 /* ---------- SKU 货架 ---------- */

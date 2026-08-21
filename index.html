@@ -17,7 +17,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- 本地资源带版本号：以后每次部署递增 v 号即可强制刷新缓存（避免新旧文件混装破版） -->
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
 <body>
 
@@ -126,7 +126,7 @@
       <div class="container">
         <p class="section__eyebrow" data-i18n="map.eyebrow">Peta Jaringan · 终端地图</p>
         <h2 class="section__title" data-i18n="map.title">🗺️ Warung 城市终端地图</h2>
-        <p class="section__lead" data-i18n="map.lead">大雅加达 9 所大学城周边的 Warung 终端网络。点击大学徽章飞到校区视野，点击小圆点查看门店详情。</p>
+        <p class="section__lead" data-i18n="map.lead">大雅加达 34 所大学周边的 Warung 终端网络。点击大学徽章飞到校区视野，点击小圆点查看门店详情。</p>
 
         <!-- 漏斗统计条（数据由 main.js 从 data.js 自动计算） -->
         <div class="funnel" id="funnelBar" aria-label="渠道漏斗统计" data-i18n-aria="aria.funnel"></div>
@@ -149,16 +149,16 @@
       <div class="map-wrap">
         <div id="leafletMap" role="application" aria-label="Warung 终端网络地图" data-i18n-aria="aria.map"></div>
         <div class="map-legend" id="mapLegend"></div>
-        <!-- 数据来源角标：默认隐藏，真实数据加载成功后由 main.js 点亮「实时数据」 -->
-        <div class="map-demo-note" id="mapDataBadge"></div>
+        <!-- 数据来源角标：双态常显——黄色「演示数据 · 示例网络」，Sheet 实时数据加载成功后由 main.js 转绿 -->
+        <div class="map-demo-note" id="mapDataBadge">🟡 演示数据 · 示例网络</div>
       </div>
     </section>
 
-    <!-- ============ 4.5 签约 SKU 货架 ============ -->
+    <!-- ============ 4.5 首发 SKU 货架 ============ -->
     <section class="section" id="skus">
       <div class="container">
-        <p class="section__eyebrow" data-i18n="sku.eyebrow">Etalase SKU · 签约货盘</p>
-        <h2 class="section__title" data-i18n="sku.title">签约 SKU 货架</h2>
+        <p class="section__eyebrow" data-i18n="sku.eyebrow">Etalase SKU · 首发货盘</p>
+        <h2 class="section__title" data-i18n="sku.title">首发 SKU 货架</h2>
 
         <!-- A. 首推智能硬件 Top 10（JS 从 data.js SKUS_HARDWARE 渲染） -->
         <h3 class="sku-block__title" data-i18n="sku.hardware.title">首推智能硬件 Top 10</h3>
@@ -167,7 +167,7 @@
 
         <!-- B. 一日三餐（Warung 场景 SKU，JS 从 data.js SKUS_MEALS 渲染） -->
         <h3 class="sku-block__title" data-i18n="sku.meals.title">一日三餐 · Warung 场景 SKU</h3>
-        <p class="sku-block__intro" data-i18n="sku.meals.intro">印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，全部由签约 Warung 终端承接</p>
+        <p class="sku-block__intro" data-i18n="sku.meals.intro">印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，目标由校园 Warung 网络承接</p>
         <div class="meals-grid" id="mealsGrid"></div>
       </div>
     </section>
@@ -186,7 +186,7 @@
       <div class="container">
         <p class="section__eyebrow" data-i18n="community.eyebrow">Komunitas Kampus · 校园社群</p>
         <h2 class="section__title" data-i18n="community.title">校园社群网络</h2>
-        <p class="section__lead" data-i18n="community.lead">双边网络：左边 34 所校园终端店承接货架，右边 34 个校园 WhatsApp 社群承接复购。</p>
+        <p class="section__lead" data-i18n="community.lead">双边网络：左边 34 所校园终端店承接货架，右边 34 校 WhatsApp 社群陆续开放中。</p>
         <!-- 社群入口网格（JS 从 data.js 大学清单渲染） -->
         <div class="community-grid" id="communityGrid"></div>
         <p class="community-note" data-i18n="community.note">社群招募中 · 由校园大使运营</p>
@@ -367,11 +367,9 @@
       <div class="container cta__inner">
         <h2 class="cta__title" data-i18n="cta.title">先读一份快报，再决定要不要进场</h2>
         <p class="cta__lead" data-i18n="cta.lead">索取《雅加达大学生消费快报 · 样板版》—— 看看我们的数据颗粒度，值不值 ¥8,000。</p>
-        <!-- ⚠️ 以下联系方式为占位，部署前需替换为真实联系方式 -->
         <div class="cta__contacts">
-          <a class="btn btn--light" href="#contact">WhatsApp：+62-xxx-xxxx-xxxx</a>
-          <a class="btn btn--light" href="#contact" data-i18n="cta.wechat">微信：warung-network</a>
-          <a class="btn btn--light" href="mailto:hello@warungnetwork.id">hello@warungnetwork.id</a>
+          <a class="btn btn--light" href="https://wa.me/628232112968?text=Halo%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20Warung%20Network" target="_blank" rel="noopener">WhatsApp：+62 823-2112-2968</a>
+          <a class="btn btn--light" href="mailto:vfvincentwong@gmail.com">vfvincentwong@gmail.com</a>
         </div>
       </div>
     </section>
@@ -399,8 +397,8 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <!-- 本地资源带版本号：每次部署递增 v 号强制刷新 -->
-  <script src="assets/js/data.js?v=8"></script>
-  <script src="assets/js/sheet-loader.js?v=8"></script>
-  <script src="assets/js/main.js?v=8"></script>
+  <script src="assets/js/data.js?v=9"></script>
+  <script src="assets/js/sheet-loader.js?v=9"></script>
+  <script src="assets/js/main.js?v=9"></script>
 </body>
 </html>

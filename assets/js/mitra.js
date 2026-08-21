@@ -63,7 +63,7 @@
       'cta.wa': 'Join via WhatsApp',
       'benefits.title': 'Why join?',
       'b1.title': 'Brand display fees',
-      'b1.desc': 'Fixed monthly income on top of your daily sales.',
+      'b1.desc': 'An opportunity for extra monthly income on top of your daily sales.',
       'b2.title': 'Order alerts straight to WhatsApp',
       'b2.desc': 'Take more orders at peak hours — no extra app needed.',
       'b3.title': 'Restock discounts & best-seller intel',
@@ -96,7 +96,7 @@
       'cta.wa': '通过 WhatsApp 加入',
       'benefits.title': '为什么加入？',
       'b1.title': '品牌陈列费',
-      'b1.desc': '在日常流水之外，每月多一笔固定收入。',
+      'b1.desc': '在日常流水之外，有机会每月多一笔额外收入。',
       'b2.title': '订单通知直达 WhatsApp',
       'b2.desc': '高峰期接更多单，不需要装任何新 App。',
       'b3.title': '补货优惠与热销品情报',
@@ -148,7 +148,7 @@
       currentLang === 'zh' ? 'zh-CN' : currentLang); // 与主站 main.js 的 lang 取值一致
   }
 
-  /* WhatsApp CTA：占位运营号 + 白名单校验（与主站同一机制），不通过则按钮留 # 兜底 */
+  /* WhatsApp CTA：真实运营号 + 白名单校验（与主站同一机制），不通过则按钮留 # 兜底 */
   function buildWaUrl() {
     var num = DATA.whatsappOpsNumber || '';
     var url = 'https://wa.me/' + num + '?text=' + encodeURIComponent(WA_PREFILL);

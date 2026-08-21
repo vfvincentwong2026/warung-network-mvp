@@ -1,5 +1,5 @@
 /* ============================================================
- * Warung Network — 主逻辑（v4 白色主题三语版 + 签约 SKU 货架 + 校园 WhatsApp 社群）
+ * Warung Network — 主逻辑（v4 白色主题三语版 + 首发 SKU 货架 + 校园 WhatsApp 社群）
  * 依赖：Leaflet 1.9.x（CDN）+ assets/js/data.js（window.WARUNG_DATA）
  *      + assets/js/sheet-loader.js（window.SheetLoader，可选）
  * 兼容 file:// 直开：不使用 ES Module / fetch 本地文件
@@ -75,7 +75,7 @@
       'brands.note': '巨头用资本铺出渠道网络，腰部品牌需要的是 —— 一条低成本的验证快车道。',
       'map.eyebrow': 'Peta Jaringan · 终端地图',
       'map.title': '🗺️ Warung 城市终端地图',
-      'map.lead': '大雅加达 9 所大学城周边的 Warung 终端网络。点击大学徽章飞到校区视野，点击小圆点查看门店详情。',
+      'map.lead': '大雅加达 34 所大学周边的 Warung 终端网络。点击大学徽章飞到校区视野，点击小圆点查看门店详情。',
       'filter.uni': '按大学筛选', 'filter.uni.all': '全部大学（大雅加达视野）', 'filter.status': '按状态筛选',
       'chip.all': '全部',
       'products.eyebrow': 'Produk · 产品货架',
@@ -122,30 +122,30 @@
       't4.t': '中印双语团队', 't4.d': '雅加达本地团队执行，中文对接交付，没有翻译损耗，没有信息黑箱。',
       'cta.title': '先读一份快报，再决定要不要进场',
       'cta.lead': '索取《雅加达大学生消费快报 · 样板版》—— 看看我们的数据颗粒度，值不值 ¥8,000。',
-      'cta.wechat': '微信：warung-network',
       'footer.tagline': '中国消费品牌进入印尼的第一站',
       'footer.mitra': '店主入驻',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · 地图数据 © OpenStreetMap contributors © CARTO',
       /* SKU 货架 + 校园社群 */
-      'sku.eyebrow': 'Etalase SKU · 签约货盘', 'sku.title': '签约 SKU 货架',
+      'sku.eyebrow': 'Etalase SKU · 首发货盘', 'sku.title': '首发 SKU 货架',
       'sku.hardware.title': '首推智能硬件 Top 10',
       'sku.hardware.intro': '为印尼大学生严选的中国智能硬件货盘 · 社群预售 + 校园快闪 + Warung 自提',
       'sku.meals.title': '一日三餐 · Warung 场景 SKU',
-      'sku.meals.intro': '印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，全部由签约 Warung 终端承接',
+      'sku.meals.intro': '印尼校园真实餐饮地图 · 4 个时段 16 个高频品项，目标由校园 Warung 网络承接',
       'sku.meals.spice': '辣度',
       'skuSnacks': '校园零食货架',
       'skuSnacksSub': 'Warung 最高频的走量货盘 · 6 大类 18 个品项 · 每一格都是中国品牌替代本地霸主的机会',
       'catKeripik': '辣味膨化', 'catMie': '方便杯面', 'catWafer': '威化饼干',
       'catPermen': '糖果巧克力', 'catMinuman': '即饮饮料', 'catKopi': '咖啡冲调',
-      'sku.tag': '签约 SKU',
+      'sku.tag': '首发 SKU',
       'sku.benchmark': '对标',
       'community.eyebrow': 'Komunitas Kampus · 校园社群',
       'community.title': '校园社群网络',
-      'community.lead': '双边网络：左边 34 所校园终端店承接货架，右边 34 个校园 WhatsApp 社群承接复购。',
+      'community.lead': '双边网络：左边 34 所校园终端店承接货架，右边 34 校 WhatsApp 社群陆续开放中。',
       'community.note': '社群招募中 · 由校园大使运营',
       'community.join': '💬 加入校园社群',
       /* 动态内容模板（{x} 为占位符） */
       'legend.title': '图例', 'legend.uni': '大学（点击飞到校区）',
+      'badge.demo': '🟡 演示数据 · 示例网络',
       'badge.live': '🟢 实时数据 · 更新于 {time}',
       'popup.nearby': '周边', 'popup.orders': '近 7 天订单',
       'popup.uni.nearby': '周边点位 {n} 家：', 'popup.uni.none': '暂无'
@@ -182,7 +182,7 @@
       'brands.note': 'Giants bought channel networks with capital. Mid-sized brands need a low-cost validation fast lane.',
       'map.eyebrow': 'Peta Jaringan · Terminal Map',
       'map.title': '🗺️ Warung City Terminal Map',
-      'map.lead': 'The warung network around 9 universities across Greater Jakarta. Click a campus badge to fly in; click a dot for store details.',
+      'map.lead': 'The warung network around 34 universities across Greater Jakarta. Click a campus badge to fly in; click a dot for store details.',
       'filter.uni': 'Filter by university', 'filter.uni.all': 'All universities (Greater Jakarta view)', 'filter.status': 'Filter by status',
       'chip.all': 'All',
       'products.eyebrow': 'Produk · Product Shelf',
@@ -229,28 +229,28 @@
       't4.t': 'Chinese–Indonesian team', 't4.d': 'Executed by our Jakarta team, delivered in Chinese — no translation loss, no black box.',
       'cta.title': 'Read one report before you decide to enter',
       'cta.lead': 'Get the "Jakarta Student Consumer Report · Sample Edition" — see whether our data granularity is worth ¥8,000.',
-      'cta.wechat': 'WeChat: warung-network',
       'footer.tagline': 'The first stop for Chinese consumer brands entering Indonesia',
       'footer.mitra': 'For Warung Owners',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · Map data © OpenStreetMap contributors © CARTO',
-      'sku.eyebrow': 'Etalase SKU · Signed Shelf', 'sku.title': 'Signed SKU Shelf',
+      'sku.eyebrow': 'Etalase SKU · Launch Shelf', 'sku.title': 'Launch SKU Shelf',
       'sku.hardware.title': 'Top 10 Smart Hardware Picks',
       'sku.hardware.intro': 'Chinese smart hardware curated for Indonesian students · community presale + campus pop-ups + warung pickup',
       'sku.meals.title': 'Three Meals a Day · Warung-Scene SKUs',
-      'sku.meals.intro': 'A real food map of Indonesian campuses · 16 high-frequency items across 4 dayparts, all fulfilled by signed warung outlets',
+      'sku.meals.intro': 'A real food map of Indonesian campuses · 16 high-frequency items across 4 dayparts, to be fulfilled by the campus warung network',
       'sku.meals.spice': 'Spice',
       'skuSnacks': 'Campus Snack Shelf',
       'skuSnacksSub': 'The highest-frequency shelf in every warung · 6 categories, 18 SKUs · each one an opportunity for Chinese brands',
       'catKeripik': 'Spicy Chips & Crackers', 'catMie': 'Instant Cup Noodles', 'catWafer': 'Wafers & Biscuits',
       'catPermen': 'Candy & Chocolate', 'catMinuman': 'Ready-to-Drink', 'catKopi': 'Coffee & Sachets',
-      'sku.tag': 'Signed SKU',
+      'sku.tag': 'Launch SKU',
       'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus · Campus Community',
       'community.title': 'Campus Community Network',
-      'community.lead': 'A two-sided network: 34 campus terminal stores hold the shelves; 34 campus WhatsApp groups drive repeat purchases.',
+      'community.lead': 'A two-sided network: 34 campus terminal stores hold the shelves; 34 campus WhatsApp groups are opening progressively.',
       'community.note': 'Recruiting members · run by campus ambassadors',
       'community.join': '💬 Join Campus Community',
       'legend.title': 'Legend', 'legend.uni': 'Universities (click to fly in)',
+      'badge.demo': '🟡 Demo data · sample network',
       'badge.live': '🟢 Live data · updated {time}',
       'popup.nearby': 'nearby', 'popup.orders': 'Orders (7 days)',
       'popup.uni.nearby': '{n} outlets nearby: ', 'popup.uni.none': 'none yet'
@@ -287,7 +287,7 @@
       'brands.note': 'Raksasa membangun kanal dengan modal. Merek menengah butuh jalur cepat validasi berbiaya rendah.',
       'map.eyebrow': 'Peta Jaringan',
       'map.title': '🗺️ Peta Jaringan Warung Kota',
-      'map.lead': 'Jaringan warung di sekitar 9 kampus se-Jabodetabek. Klik lencana kampus untuk mendekat; klik titik untuk detail toko.',
+      'map.lead': 'Jaringan warung di sekitar 34 kampus se-Jabodetabek. Klik lencana kampus untuk mendekat; klik titik untuk detail toko.',
       'filter.uni': 'Filter per kampus', 'filter.uni.all': 'Semua kampus (tampilan Jabodetabek)', 'filter.status': 'Filter per status',
       'chip.all': 'Semua',
       'products.eyebrow': 'Etalase Produk',
@@ -334,28 +334,28 @@
       't4.t': 'Tim dwibahasa Tiongkok–Indonesia', 't4.d': 'Dieksekusi tim lokal Jakarta, dilaporkan dalam bahasa Mandarin — tanpa kehilangan terjemahan, tanpa kotak hitam.',
       'cta.title': 'Baca satu laporan dulu sebelum memutuskan masuk',
       'cta.lead': 'Minta "Laporan Konsumen Mahasiswa Jakarta · Edisi Sampel" — nilai sendiri apakah kedalaman data kami sebanding dengan ¥8.000.',
-      'cta.wechat': 'WeChat: warung-network',
       'footer.tagline': 'Pintu pertama merek konsumer Tiongkok masuk Indonesia',
       'footer.mitra': 'Mitra Warung',
       'footer.copy': '© 2026 Warung Network · Jakarta &amp; Hangzhou · Data peta © OpenStreetMap contributors © CARTO',
-      'sku.eyebrow': 'Etalase SKU · SKU Terkontrak', 'sku.title': 'Etalase SKU Terkontrak',
+      'sku.eyebrow': 'Etalase SKU · Perdana', 'sku.title': 'Etalase SKU Perdana',
       'sku.hardware.title': 'Top 10 Hardware Pintar Pilihan',
       'sku.hardware.intro': 'Hardware pintar Tiongkok terkurasi untuk mahasiswa Indonesia · presale komunitas + pop-up kampus + ambil di warung',
       'sku.meals.title': 'Makan Tiga Kali Sehari · SKU Skenario Warung',
-      'sku.meals.intro': 'Peta kuliner kampus Indonesia yang nyata · 16 item berfrekuensi tinggi di 4 waktu makan, semua dilayani warung terkontrak',
+      'sku.meals.intro': 'Peta kuliner kampus Indonesia yang nyata · 16 item berfrekuensi tinggi di 4 waktu makan, dilayani oleh jaringan warung kampus',
       'sku.meals.spice': 'Pedas',
       'skuSnacks': 'Rak Snack Kampus',
       'skuSnacksSub': 'Etalase paling laris di warung · 6 kategori, 18 produk · peluang besar untuk merek baru',
       'catKeripik': 'Keripik & Snack Pedas', 'catMie': 'Mi Instan Cup', 'catWafer': 'Wafer & Biskuit',
       'catPermen': 'Permen & Cokelat', 'catMinuman': 'Minuman Kemasan', 'catKopi': 'Kopi & Sachet',
-      'sku.tag': 'SKU Terkontrak',
+      'sku.tag': 'SKU Perdana',
       'sku.benchmark': 'Benchmark',
       'community.eyebrow': 'Komunitas Kampus',
       'community.title': 'Jaringan Komunitas Kampus',
-      'community.lead': 'Jaringan dua sisi: 34 toko terminal kampus memegang rak; 34 grup WhatsApp kampus mendorong pembelian ulang.',
+      'community.lead': 'Jaringan dua sisi: 34 warung kampus menjadi titik etalase; 34 grup WhatsApp kampus dibuka bertahap.',
       'community.note': 'Perekrutan anggota · dikelola duta kampus',
       'community.join': '💬 Gabung Komunitas Kampus',
       'legend.title': 'Legenda', 'legend.uni': 'Kampus (klik untuk mendekat)',
+      'badge.demo': '🟡 Data demo · jaringan contoh',
       'badge.live': '🟢 Data langsung · diperbarui {time}',
       'popup.nearby': 'sekitar', 'popup.orders': 'Pesanan 7 hari',
       'popup.uni.nearby': '{n} titik di sekitar: ', 'popup.uni.none': 'belum ada'
@@ -450,7 +450,7 @@
     return obj[k] || obj[base + 'Zh'] || '';
   }
 
-  /* --- 签约 SKU 货架 + 校园社群入口（本地常量数据，切语言需重渲染） --- */
+  /* --- 首发 SKU 货架 + 校园社群入口（本地常量数据，切语言需重渲染） --- */
   function renderSkuAndCommunity() {
     var hw = document.getElementById('hardwareGrid');
     if (hw) {
@@ -703,8 +703,14 @@
     var uniMarkers = [];    // { id, marker }
     var warungMarkers = []; // { id, universityId, status, marker, pulse, w }
 
-    /* --- 数据来源角标：默认隐藏，仅真实数据时点亮 --- */
+    /* --- 数据来源角标：双态常显——黄色「演示数据 · 示例网络」/ 绿色「实时数据」 --- */
     var badge = document.getElementById('mapDataBadge');
+    var isLive = false; // 实时数据态：控制角标配色 + popup「近 7 天订单」字段
+    function setBadgeDemo() {
+      if (!badge) return;
+      badge.textContent = T('badge.demo');
+      badge.classList.remove('map-demo-note--live');
+    }
     function setBadgeLive() {
       if (!badge) return;
       if (!liveTime) {
@@ -714,6 +720,7 @@
       badge.textContent = T('badge.live').replace('{time}', liveTime);
       badge.classList.add('map-demo-note--live');
     }
+    setBadgeDemo(); // 首屏即演示数据态，明确告知访客
 
     /* --- 大学 popup 内容（依赖当前 warungs + 当前语言） --- */
     function buildUniPopup(u) {
@@ -760,8 +767,8 @@
     function buildWarungPopup(w, st) {
       var u = uniById[w.universityId];
       var cats = w.categories.map(function (c) { return '<span class="popup-tag">' + escapeHtml(trCat(c)) + '</span>'; }).join('');
-      // 真实数据带 weekly_orders 时展示（演示数据无此字段，自动不显示）
-      var ordersLine = (typeof w.weeklyOrders === 'number')
+      // 「近 7 天订单」仅实时数据态渲染；演示态一律不显示该字段
+      var ordersLine = (isLive && typeof w.weeklyOrders === 'number')
         ? '<div class="popup-stat" style="margin-top:4px">' + escapeHtml(T('popup.orders')) + ' <strong>' + w.weeklyOrders + '</strong></div>' : '';
       // target 状态底色为半透明深灰，文字需近黑（对应 .popup-status--light）
       var statusCls = 'popup-status' + (w.status === 'target' ? ' popup-status--light' : '');
@@ -950,6 +957,7 @@
     /* ================= 数据热替换（SheetLoader 成功后调用） ================= */
     function swapData(liveWarungs) {
       warungs = liveWarungs;
+      isLive = true;     // 进入实时数据态：角标转绿 + popup 开放「近 7 天订单」
       renderWarungs();   // 清理旧图层（含脉冲 overlay）+ 重建
       renderFunnel();    // 重算漏斗
       // 大学 popup 内含周边点位统计，需随数据更新
@@ -977,7 +985,7 @@
         var el = um.marker.getElement();
         if (el) el.title = uniName(uniById[um.id]);
       });
-      if (liveTime) setBadgeLive(); // 实时角标文案跟随语言
+      if (isLive) setBadgeLive(); else setBadgeDemo(); // 角标文案跟随语言（双态）
     }
 
     return { swapData: swapData, setLang: setLang };
